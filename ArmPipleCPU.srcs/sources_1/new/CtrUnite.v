@@ -35,7 +35,7 @@ module CtrUnite(
     output memwrited,
 
     output pcsrcd,
-    output branchd//这个的控制逻辑是什么我没想好
+    output reg branchd//这个的控制逻辑是什么我没想好
 
 
 );
@@ -60,6 +60,7 @@ begin
         end
         `BR: begin
             controls=10'b0110100010;//branch
+            branchd=1'b1;
         end
         default: begin
            // Default case to handle unexpected op values
