@@ -20,7 +20,7 @@
 `define ME 2'b01
 `define BR 2'b10
 module CtrUnite(
-    inout [1:0] op,
+    input [1:0] op,
     input [5:0] funct,
     input [3:0] rd,
     output [1:0] regsrcd,
