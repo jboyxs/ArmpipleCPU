@@ -30,88 +30,52 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+//先按照自己的想法来改，之后再把功能添上去。
 module shift(
     input        [31:0] data_in,      // 输入数据
-    input        [4:0]  shift_amount, // 移位量 (0-31)
+    input        [4:0]  shift_amount, //移位量
     input        [1:0]  shift_type,   // 移位类型
-    input               carry_in,     // 输入的CPSR的C标志位
-    output reg   [31:0] data_out,     // 移位结果
-    output reg          carry_out     // 移位产生的C标志位
+    // input               carry_in,     // 输入的CPSR的C标志位
+    output reg   [31:0] data_out     // 移位结果
+    // output reg          carry_out     // 移位产生的C标志位
     );
 
 // 定义移位类型常量，增强可读性
 localparam LSL     = 2'b00; // Logical Shift Left
 localparam LSR     = 2'b01; // Logical Shift Right
 localparam ASR     = 2'b10; // Arithmetic Shift Right
-localparam ROR_RRX = 2'b11; // Rotate Right or Rotate Right with Extend
+localparam ROR     = 2'b11; // Rotate Right or Rotate Right with Extend
 
-always @* begin
-    // 初始化默认值，以防某些分支未赋值 (虽然在完整case语句下通常不是问题)
-    data_out = 32'b0; 
-    carry_out = 1'b0;
-
-    case (shift_type)
+always @(*) begin
+    case(shift_type)
         LSL: begin
-            if (shift_amount == 5'b0) begin
-                // LSL #0: 结果为原数据，进位输出为输入的C标志位
-                data_out = data_in;
-                carry_out = carry_in;
-            end else begin // shift_amount 为 1 到 31
-                data_out = data_in << shift_amount;
-                // 对于 LSL #S (S > 0), carry_out 是 data_in 的第 (32-S) 位
-                carry_out = data_in[32 - shift_amount];
-            end
+            data_out = data_in << shift_amount; // Logical Shift Left
         end
-
-        LSR: begin
-            if (shift_amount == 5'b0) begin // LSR #0 等效于 LSR #32
-                data_out = 32'b0;
-                // carry_out 是 data_in 的最高位 (第31位)
-                carry_out = data_in[31];
-            end else begin // shift_amount 为 1 到 31
-                data_out = data_in >> shift_amount;
-                // 对于 LSR #S (S > 0), carry_out 是 data_in 的第 (S-1) 位
-                carry_out = data_in[shift_amount - 1];
-            end
+        LSR:begin
+            if (shift_amount==0)
+            data_out=32'b0; // ARM-style behavior: LSR #0 == LSR #32 => result is 0
+            else 
+            data_out = data_in >> shift_amount; // Logical Shift Right
         end
-
         ASR: begin
-            if (shift_amount == 5'b0) begin // ASR #0 等效于 ASR #32
-                if (data_in[31]) begin // 检查符号位
-                    data_out = 32'hFFFFFFFF; // 算术右移，高位补1
-                end else begin
-                    data_out = 32'h00000000; // 算术右移，高位补0
-                end
-                // carry_out 是 data_in 的最高位 (第31位)
-                carry_out = data_in[31];
-            end else begin // shift_amount 为 1 到 31
-                // Verilog 的 >>> 对有符号数执行算术右移
-                // 为确保对普通reg类型执行算术右移，需转换为signed
-                data_out = $signed(data_in) >>> shift_amount;
-                // 对于 ASR #S (S > 0), carry_out 是 data_in 的第 (S-1) 位
-                carry_out = data_in[shift_amount - 1];
+            if (shift_amount == 0) begin
+             data_out = data_in[31] ? 32'hFFFFFFFF : 32'b0; // 全1或全0
+            end else begin
+                data_out = $signed(data_in) >>> shift_amount; // Arithmetic Shift Right
             end
         end
-
-        ROR_RRX: begin
-            if (shift_amount == 5'b0) begin // 当移位类型为ROR且移位量为0时，执行RRX
-                // RRX: 结果的最高位是carry_in, 其余位是data_in右移一位
-                data_out = (carry_in << 31) | (data_in >> 1);
-                // carry_out 是 data_in 的最低位 (第0位)
-                carry_out = data_in[0];
-            end else begin // ROR, shift_amount 为 1 到 31
-                data_out = (data_in >> shift_amount) | (data_in << (32 - shift_amount));
-                // 对于 ROR #S (S > 0), carry_out 是 data_in 的第 (S-1) 位
-                carry_out = data_in[shift_amount - 1];
+        ROR: begin
+            if (shift_amount == 0) begin
+                data_out = data_in; // ROR #0, result is the same as input
+            end else begin
+                data_out = (data_in >> shift_amount) | (data_in << (32 - shift_amount)); // Rotate Right
             end
         end
-
-        default: begin // 理论上不应到达，因为shift_type是2位
-            data_out = data_in; // 或者可以设置为错误指示值
-            carry_out = carry_in;
+        default: begin
+            data_out = data_in; // Default: no shift
         end
     endcase
 end
+
 
 endmodule
