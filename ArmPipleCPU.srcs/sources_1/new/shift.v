@@ -53,13 +53,13 @@ always @(*) begin
         end
         LSR:begin
             if (shift_amount==0)
-            data_out=32'b0; // ARM-style behavior: LSR #0 == LSR #32 => result is 0
+            data_out=32'b0; // ARM-style behavior: LSR #0 == LSR #32 => result is 0 arm定义的
             else 
             data_out = data_in >> shift_amount; // Logical Shift Right
         end
         ASR: begin
             if (shift_amount == 0) begin
-             data_out = data_in[31] ? 32'hFFFFFFFF : 32'b0; // 全1或全0
+             data_out = data_in[31] ? 32'hFFFFFFFF : 32'b0; // 全1或全0 arm定义的
             end else begin
                 data_out = $signed(data_in) >>> shift_amount; // Arithmetic Shift Right
             end
