@@ -23,9 +23,9 @@
 module IDStage(
     input clk,
     input [31:0] instrd,
-    input pcplus8d,
-    input wa3w,
-    input resultw,
+    input  [31:0] pcplus8d,
+    input [31:0] wa3w,
+    input  [31:0] resultw,
     input regwritew,
     output [31:0] extimmd,//扩展立即数
     output [31:0] rd1d,rd2d,rd3d,rd2shiftd,//相关寄存器里面存的值

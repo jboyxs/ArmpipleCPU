@@ -26,12 +26,13 @@ module IDRegister(
     input [31:0] instrf,
     output reg [31:0] instrd
     );
-    
+    //damn不知道写得对不对呀
+    //这里是异步清零带使能
     always @(posedge clk or posedge clr) begin
         if (clr) begin
             instrd <= 32'h0;
         end
-        else if (~en) begin  // Active low enable
+        else if (~en) begin  // Active low enable低位使能应该是对的
             instrd <= instrf;
         end
         // When en is high, hold the current value

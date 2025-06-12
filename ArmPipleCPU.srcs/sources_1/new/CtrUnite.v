@@ -35,12 +35,12 @@ module CtrUnite(
     output memwrited,
 
     output pcsrcd,
-    output reg branchd//这个的控制逻辑是什么我没想好
+    output  branchd//这个的控制逻辑是什么我没想好
 
 
 );
 reg [9:0] controls;
-wire branch,aluop;
+wire aluop;
 
 always@(*)
 begin
@@ -53,14 +53,13 @@ begin
         `ME: begin//书上的控制逻辑感觉有点问题
             if (funct[0])
                 if(funct[5]) controls=10'b0001011000;
-                else controls=10'b0001111000; 
+                else controls=10'b0001111000; //书上的，我考虑了偏移量存在寄存器里的情况
             else 
-                if(funct[5]) controls=10'b0001000100;
-                else controls=10'b0001100100;
+                if(funct[5]) controls=10'b1001010100;//现在还没想好怎么把寄存器里面的偏移量读出来，后面可能要在加一个口在RF上，现在不能实现偏移量放在寄存器中的情况
+                else controls=10'b1001110100;//书上的，我考虑了偏移量存在寄存器里的情况
         end
         `BR: begin
             controls=10'b0110100010;//branch
-            branchd=1'b1;
         end
         default: begin
            // Default case to handle unexpected op values
@@ -68,7 +67,7 @@ begin
         end
     endcase
 end
-assign {regsrcd,immsrcd,alusrcd,memtoregd,regwrited,memwrited,branch,aluop}= controls;
+assign {regsrcd,immsrcd,alusrcd,memtoregd,regwrited,memwrited,branchd,aluop}= controls;
 
 always @(*) begin
     if(aluop) begin
@@ -88,6 +87,6 @@ flagwrited[0]=funct[0]&(aluctronld==2'b00|aluctronld==2'b01);
         flagwrited=2'b00; // Default case for non-alu operations
     end
 end
-assign pcsrcd =branch|((rd==4'b1111)&(regwrited)); //branch or bx
+assign pcsrcd =branchd|((rd==4'b1111)&(regwrited)); //branch or bx
 
 endmodule
