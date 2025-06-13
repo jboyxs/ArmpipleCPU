@@ -42,7 +42,10 @@ module IDStage(
 
     output pcsrcd,
     output  branchd,
-    output wa3d//用于Rd是第几个寄存器（Rd的地址）
+    output wa3d,//用于Rd是第几个寄存器（Rd的地址）
+    //为冲突单元的比较所用的信号
+    output [3:0] RA1D,
+    output [3:0] RA2D
 
 
 
@@ -80,6 +83,7 @@ Mux2_4 Mux2_4forra1(
     .y(ra1)         // 4位输出
 
     );
+    assign RA1D = ra1; // RA1D是ID阶段的ra1输出
 Mux2_4 Mux2_4forra2(
     .d0(instrd[3:0]),       // 第一个4位输入
     .d1(instrd[15:12]),       // 第二个4位输入
@@ -87,6 +91,7 @@ Mux2_4 Mux2_4forra2(
     .y(ra2)         // 4位输出
 
     );
+    assign RA2D = ra2; // RA2D是ID阶段的ra2输出
 
 RegFile RegFile(
     .clk(clk),

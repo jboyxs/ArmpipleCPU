@@ -44,6 +44,9 @@ module IERegister(
     input clk,
     //冲突控制信号
     input flushe,
+    //为冲突单元的比较所用的信号
+    input [3:0] RA1D,
+    input [3:0] RA2D,
     //输出
         //pc相关控制信号
     output reg pcsrce,
@@ -63,7 +66,10 @@ module IERegister(
     //RF读出来的值
     output reg [31:0] rd1e,rd2e,rd2shifte,
     //扩展立即数
-    output reg [31:0] extimme
+    output reg [31:0] extimme,
+    //为冲突单元的比较所用的信号
+    output reg [3:0] RA1E,
+    output reg [3:0] RA2E
     );
     always @(posedge clk) begin
         if (flushe) begin
@@ -86,6 +92,8 @@ module IERegister(
             rd2shifte <= 32'b0;
             extimme <= 32'b0;
             flagse <= 4'b0000; 
+            RA1E <= 4'b0000;
+            RA2E <= 4'b0000;
         end else begin
             // 否则，正常传递信号
             pcsrce <= pcsrcd;
@@ -104,6 +112,8 @@ module IERegister(
             rd2shifte <= rd2shiftd;
             extimme <= extimmd;
             flagse <= flagsv;
+            RA1E <= RA1D;
+            RA2E <= RA2D;
         end
     end
     
