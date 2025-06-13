@@ -23,3 +23,11 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.xpr
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top CondUnite [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1

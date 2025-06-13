@@ -32,9 +32,10 @@ module IERegister(
     input [1:0] alucontrold,
     input alusrcd,
     input [1:0] flagwrited,
-    //两个直接传递的值
+    //两个直接传递的值，又加了一个
     input [3:0] condd,
     input [3:0] wa3dd,
+    input [3:0] flagsv,
     //RF读出来的值
     input [31:0] rd1d,rd2d,rd3d,rd2shiftd,
     //扩展立即数
@@ -55,9 +56,10 @@ module IERegister(
     output reg [1:0] alucontrole,
     output reg alusrce,
     output reg [1:0] flagwritee,
-    //两个直接传递的值
+    //两个直接传递的值,又加了一个
     output reg [3:0] conde,
     output reg [3:0] wa3de,
+    output reg [3:0] flagse,
     //RF读出来的值
     output reg [31:0] rd1e,rd2e,rd3e,rd2shifte,
     //扩展立即数
@@ -83,6 +85,7 @@ module IERegister(
             rd3e <= 32'b0;
             rd2shifte <= 32'b0;
             extimme <= 32'b0;
+            flagse <= 4'b0000; 
         end else begin
             // 否则，正常传递信号
             pcsrce <= pcsrcd;
@@ -100,6 +103,7 @@ module IERegister(
             rd3e <= rd3d;
             rd2shifte <= rd2shiftd;
             extimme <= extimmd;
+            flagse <= flagsv;
         end
     end
     
