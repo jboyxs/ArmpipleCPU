@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module alu(input  wire [31:0] a, b,
+module ALU(input  wire [31:0] a, b,
            input  wire [1:0]  ALUControl,
            output wire [31:0] Result,
            output wire [3:0]  Flags);

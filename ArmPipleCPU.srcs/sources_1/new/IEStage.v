@@ -34,9 +34,9 @@ module IEStage(
     input  [1:0] flagwritee,
     //两个直接传递的值
     input  [3:0] conde,
-    input  [3:0] wa3de,
+    input  [3:0] wa3e,
     //RF读出来的值
-    input  [31:0] rd1e,rd2e,rd3e,rd2shifte,
+    input  [31:0] rd1e,rd2e,rd2shifte,//rd3e不需要，里面存的是Rs的值，是偏移量寄存器的移位值
     //扩展立即数
     input  [31:0] extimme,
     //一开始漏掉的三个
@@ -55,29 +55,31 @@ module IEStage(
     output brantakee,
     output [31:0] resulte,
     output [31:0] writedatae,
-    output [3:0] wa3e
+    output [3:0] wa3ev
     );
-    //计算源选择模块
+    //计算源选择模块(damn用ai写接口定义错了)
     wire [31:0] srcae, srcbev,srcbe;
     Mux3_32 forwarda_mux(
-        .sel(forwardae),
-        .in0(rd1e),
-        .in1(resultew),
-        .in2(memtoexe),
-        .out(srcae)
+        .s0(forwardae[0]),
+        .s1(forwardae[1]),
+        .d0(rd1e),
+        .d1(resultew),
+        .d2(memtoexe),
+        .y(srcae)
     );
     Mux3_32 forwardb_mux(
-        .sel(forwardbe),
-        .in0(rd2e),
-        .in1(resultew),
-        .in2(memtoexe),
-        .out(srcbev)
+        .s0(forwardbe[0]),
+        .s1(forwardbe[1]),
+        .d0(rd2shifte),
+        .d1(resultew),
+        .d2(memtoexe),
+        .y(srcbev)
     );
     Mux2_32 alusrc_mux(
-        .sel(alusrce),
-        .in0(srcbev),
-        .in1(extimme),
-        .out(srcbe)
+        .s(alusrce),
+        .d0(srcbev),
+        .d1(extimme),
+        .y(srcbe)
     );
     wire [3:0] aluflags;
     wire condexe;
@@ -98,6 +100,9 @@ module IEStage(
     assign regwriteev = regwritee & condexe;
     assign memtoregev = memtorege & condexe;
     assign memwriteev = memwritee & condexe;
+    assign brantakee = branche & condexe;
+    assign wa3ev = wa3e;
+    assign rd2e=writedatae;
 
 
 
