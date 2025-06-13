@@ -13,3 +13,5 @@ For course design bands
 - 没有乘法指令
 - 没有非整形指令
 - 没有移位指令
+4. 冲突处理单元的两个地址RA1E和RA2E还没通过RA1D和RA2D通过IERegister引出来
+5. 最后一级目前看来要在整体里面搓

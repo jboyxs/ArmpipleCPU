@@ -47,12 +47,12 @@ module IEStage(
     input [1:0] forwardae,
     input [1:0] forwardbe,
     //输出
-    output [3:0] flagsv,
+    output [3:0] flagsv,//
     output pcsrcev,
     output regwriteev,
     output memtoregev,
     output memwriteev,
-    output brantakee,
+    output brantakee,//
     output [31:0] resulte,
     output [31:0] writedatae,
     output [3:0] wa3ev
@@ -98,7 +98,7 @@ module IEStage(
                 .flagsv(flagsv));
     assign pcsrcev =pcsrce & condexe;
     assign regwriteev = regwritee & condexe;
-    assign memtoregev = memtorege & condexe;
+    assign memtoregev = memtorege ;//不经过条件选择
     assign memwriteev = memwritee & condexe;
     assign brantakee = branche & condexe;
     assign wa3ev = wa3e;
