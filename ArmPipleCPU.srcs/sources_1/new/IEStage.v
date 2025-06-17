@@ -102,7 +102,7 @@ module IEStage(
     assign memwriteev = memwritee & condexe;
     assign brantakee = branche & condexe;
     assign wa3ev = wa3e;
-    assign rd2e=writedatae;
+    assign writedatae=rd2e;//之前赋值顺序反了
 
 
 
