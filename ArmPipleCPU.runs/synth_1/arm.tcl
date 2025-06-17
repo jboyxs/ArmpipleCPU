@@ -57,6 +57,7 @@ if {$::dispatch::connected} {
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -76,18 +77,32 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/AMRegister.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/AMStage.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/CondUnite.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/CtrUnite.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Extent.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IDRegister.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IDStage.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IERegister.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IEStage.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux2.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux2_32.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux3_32.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/RegFile.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/WBRegister.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/eqcmp.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/hazard.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ifstage.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/shift.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/arm.v
 }
 read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/dist_mem_im/dist_mem_im.xci
 set_property used_in_implementation false [get_files -all c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_im/dist_mem_im_ooc.xdc]
+
+read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/dist_mem_gen_dm/dist_mem_gen_dm.xci
+set_property used_in_implementation false [get_files -all c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_gen_dm/dist_mem_gen_dm_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

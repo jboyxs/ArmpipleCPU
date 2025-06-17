@@ -24,7 +24,7 @@ module IDStage(
     input clk,
     input [31:0] instrd,
     input  [31:0] pcplus8d,
-    input [31:0] wa3w,
+    input [3:0] wa3w,
     input  [31:0] resultw,
     input regwritew,
     output [31:0] extimmd,//扩展立即数

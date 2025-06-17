@@ -153,7 +153,7 @@ module arm(
     .branche(branche),
     //内存相关控制信号
     .memtorege(memtorege),
-    .memwritee(memtoree),
+    .memwritee(memwritee),
     //alu相关控制信号
     .alucontrole(aluctronle),
     .alusrce(alusrce),
@@ -222,6 +222,7 @@ module arm(
     .writedatae(writedatae),
     .wa3ev(wa3ev)
     );
+    assign aluresulte =resulte;
     //寄存器
     wire pcsrcm;
     wire regwritem;
