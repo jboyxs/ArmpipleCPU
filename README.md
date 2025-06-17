@@ -19,3 +19,4 @@ For course design bands
 7.  要将两个mem独立出来，难绷,好像不用直接coe导入就行
 8. 怎么检查，怎么debug
 9. 加油 
+10. 基本检查完毕，现在来试试仿真。

@@ -22,6 +22,8 @@
 module AMRegister(
     input clk,
        //输入
+       //加入reset
+       input reset,
     input pcsrcev,
     input regwriteev,
     input memtoregev,
@@ -39,7 +41,17 @@ module AMRegister(
     output reg [3:0] wa3m
     );
 
-    always @(posedge clk) begin
+    always @(posedge clk,posedge reset) begin
+        if (reset) begin
+        pcsrcm <= 0;
+        regwritem <= 0;
+        memtoregm <= 0;
+        memwritem <= 0;
+        resultm <= 0;
+        writedatam <= 0;
+        wa3m <= 0;
+        end
+        else begin
         pcsrcm <= pcsrcev;
         regwritem <= regwriteev;
         memtoregm <= memtoregev;
@@ -48,5 +60,5 @@ module AMRegister(
         writedatam <= writedatae;
         wa3m <= wa3ev;
     end
-
+    end
 endmodule

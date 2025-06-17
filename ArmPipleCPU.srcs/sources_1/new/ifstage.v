@@ -22,6 +22,7 @@
 
 module ifstage(
     input clk,
+    input reset,
     input [31:0] pcforward,
     input [31:0] pcdelay,
     input  pcsrcw,
@@ -49,10 +50,18 @@ module ifstage(
     assign pcplus4 = pcf+4;
     assign pcplus8 = pcplus4;
     
-    always @(posedge clk)
+    always @(posedge clk or posedge reset)
     begin
-        if (!stallf)
-            pcf = pc2;
+        if (reset) begin
+            pcf <= 32'h00000000; // Reset PC to 0
+            pc1 = 0;
+            pc2 = 0;
+            // pcplus4 is now a wire, so it doesn't need initialization
+        end
+        else if (stallf)
+            pcf <= pcf; // Stall condition, hold current PC
+        else
+            pcf <= pc2; // Update PC to next instruction address
     end
 
 endmodule

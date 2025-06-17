@@ -21,7 +21,10 @@
 
 
 module arm(
-    input clk
+    input clk,
+    input reset,//加入reset信号
+    output reg [31:0] WriteDataM,DataAdrM,
+    output MemWriteM
 
     );
        //取指阶段
@@ -34,6 +37,7 @@ module arm(
     wire [31:0] instrf;
    ifstage ifstage(
     .clk(clk),
+    .reset(reset),//加入reset信号
     .pcforward(aluresulte),
     .pcdelay(resultw),
     .pcsrcw(pcsrcw),
@@ -48,6 +52,7 @@ module arm(
     wire [31:0] instrd;
     IDRegister IDRegister(
         .clk(clk),
+        .reset(reset), // 异步复位
         .clr(flushd),
         .en(stalld),
         .instrf(instrf),
@@ -141,6 +146,7 @@ module arm(
     .extimmd(extimmd),
     //时钟
     .clk(clk),
+    .reset(reset), // 异步复位
     //冲突控制信号
     .flushe(flushe),
     //为冲突单元的比较所用的信号
@@ -233,6 +239,7 @@ module arm(
     wire [3:0] wa3m;
     AMRegister AMRegister(
     .clk(clk),
+    .reset(reset), // 异步复位
        //输入
     .pcsrcev(pcsrcev),
     .regwriteev(regwriteev),
@@ -281,6 +288,7 @@ module arm(
     wire [31:0] resultwv;
     WBRegister WBRegister(
     .clk(clk),
+    .reset(reset), // 异步复位
     .pcsrcmv(pcsrcmv),
     .regwritemv(regwritemv),
     .memtoregmv(memtoregmv),
@@ -358,6 +366,15 @@ hazard hazard(
     .FlushD(flushd), // FlushD 由 en 控制
     .FlushE(flushe)
 );
+//IO
+assign MemWriteM = memwritem;
+always @(*) begin
+    if (MemWriteM) begin
+        WriteDataM=WriteDataM;
+        DataAdrM=writedatam;
+    end
+end
+
 
 endmodule
 

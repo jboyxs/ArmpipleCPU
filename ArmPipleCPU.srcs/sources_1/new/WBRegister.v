@@ -22,6 +22,7 @@
 
 module WBRegister(
     input clk,
+    input reset,
     input pcsrcmv,
     input regwritemv,
     input memtoregmv,
@@ -37,12 +38,24 @@ module WBRegister(
 
     );
 
-    always @(posedge clk) begin
+    always @(posedge clk or posedge reset) begin
+        if(reset) begin
+            // 异步复位，清零所有输出
+            pcsrcw <= 1'b0;
+            regwritew <= 1'b0;
+            memtoregw <= 1'b0;
+            readw <= 32'h0;
+            resultw <= 32'h0;
+            wa3w <= 4'h0;
+        end
+        else begin
         pcsrcw <= pcsrcmv;
         regwritew <= regwritemv;
         memtoregw <= memtoregmv;
         readw <= readm;
         resultw <= resultmv;
         wa3w <= wa3mv;
+        end
+
     end
 endmodule
