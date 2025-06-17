@@ -28,7 +28,7 @@ module IDStage(
     input  [31:0] resultw,
     input regwritew,
     output [31:0] extimmd,//扩展立即数
-    output [31:0] rd1d,rd2d,rd3d,rd2shiftd,//相关寄存器里面存的值
+    output [31:0] rd1d,rd2d,rd2shiftd,//相关寄存器里面存的值
     output [3:0] condd,//条件
     //CtrUnite传到寄存器的值
     output regwrited,
@@ -42,7 +42,7 @@ module IDStage(
 
     output pcsrcd,
     output  branchd,
-    output wa3d,//用于Rd是第几个寄存器（Rd的地址）
+    output [3:0] wa3d,//用于Rd是第几个寄存器（Rd的地址）
     //为冲突单元的比较所用的信号
     output [3:0] RA1D,
     output [3:0] RA2D
@@ -92,7 +92,7 @@ Mux2_4 Mux2_4forra2(
 
     );
     assign RA2D = ra2; // RA2D是ID阶段的ra2输出
-
+wire [31:0] rd3d; // Rs寄存器的值
 RegFile RegFile(
     .clk(clk),
     .we3(regwritew),

@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="dist_mem_gen_dm_synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1749825168">
-  <File Type="PA-TCL" Name="dist_mem_gen_dm.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="dist_mem_gen_dm_drc_synth.rpt"/>
+<GenRun Id="dist_mem_gen_dm_synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1750130578">
   <File Type="REPORTS-TCL" Name="dist_mem_gen_dm_reports.tcl"/>
-  <File Type="RDS-RDS" Name="dist_mem_gen_dm.vds"/>
   <File Type="RDS-UTIL" Name="dist_mem_gen_dm_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="dist_mem_gen_dm_utilization_synth.pb"/>
+  <File Type="PA-TCL" Name="dist_mem_gen_dm.tcl"/>
+  <File Type="RDS-RDS" Name="dist_mem_gen_dm.vds"/>
   <File Type="RDS-DCP" Name="dist_mem_gen_dm.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="dist_mem_gen_dm_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="dist_mem_gen_dm_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/dist_mem_gen_dm" RelGenDir="$PGENDIR/dist_mem_gen_dm">
     <File Path="$PSRCDIR/sources_1/ip/dist_mem_gen_dm/dist_mem_gen_dm.xci">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -25,6 +23,7 @@
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/dist_mem_gen_dm" RelGenDir="$PGENDIR/dist_mem_gen_dm">
     <File Path="$PSRCDIR/sources_1/ip/dist_mem_gen_dm/dist_mem_gen_dm.xci">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -37,14 +36,20 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/IEStage.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

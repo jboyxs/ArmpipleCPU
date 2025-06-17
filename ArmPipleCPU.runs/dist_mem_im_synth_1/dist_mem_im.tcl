@@ -74,7 +74,7 @@ set_property ip_output_repo c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.cache/ip [cur
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/dist_mem_im/dist_mem_im.xci
+read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/dist_mem_im/dist_mem_im.xci
 set_property used_in_implementation false [get_files -all c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_im/dist_mem_im_ooc.xdc]
 
 OPTRACE "Adding files" END { }
