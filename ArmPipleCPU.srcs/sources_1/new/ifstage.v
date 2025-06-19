@@ -47,15 +47,15 @@ module ifstage(
     else pc2 = pc1;
     end
     
-    assign pcplus4 = pcf+4;
+    assign pcplus4 = pcf+1'b1;//4变成1试试ip核的变化
     assign pcplus8 = pcplus4;
     
     always @(posedge clk or posedge reset)
     begin
         if (reset) begin
             pcf <= 32'h00000000; // Reset PC to 0
-            pc1 = 0;
-            pc2 = 0;
+            pc1 <= 32'h00000000;
+            pc2 <= 32'h00000000;
             // pcplus4 is now a wire, so it doesn't need initialization
         end
         else if (stallf)

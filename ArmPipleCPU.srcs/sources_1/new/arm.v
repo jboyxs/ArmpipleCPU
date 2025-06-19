@@ -370,8 +370,8 @@ hazard hazard(
 assign MemWriteM = memwritem;
 always @(*) begin
     if (MemWriteM) begin
-        WriteDataM=WriteDataM;
-        DataAdrM=writedatam;
+        WriteDataM=writedatam;
+        DataAdrM=resultm;
     end
 end
 

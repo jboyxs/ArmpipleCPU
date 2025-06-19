@@ -48,7 +48,9 @@ module Extent(
             BR: begin
                 //通过对imm24进行符号扩展，将其向左移动2位。(操作的先后顺序不一样会导致结果不一样吗？)
                 extended_imm32 ={{8{imm24[23]}}, imm24[23:0]};
-                 imm32 = extended_imm32 << 2; // 左移2位
+                //  imm32 = extended_imm32 << 2; // 左移2位
+                //不移位试一试ip核的现象
+                imm32 = extended_imm32; // 不移位
             end
         endcase
     end
