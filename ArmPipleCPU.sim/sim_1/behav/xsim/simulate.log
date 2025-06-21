@@ -1,0 +1,7 @@
+Time resolution is 1 ps
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING in arm1_tb.dut.AMStage.dmem.inst at time                40000 ns: 
+Reading from out-of-range address. Max address in arm1_tb.dut.AMStage.dmem.inst is          63
+Simulation succeeded
+$stop called at time : 375 ns : File "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sim_1/new/arm1_tb.v" Line 47
