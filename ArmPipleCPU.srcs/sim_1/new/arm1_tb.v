@@ -23,12 +23,12 @@
 module arm1_tb();
     reg        clk;
     reg        reset;
-    wire [31:0] WriteData, DataAdr;
-    wire        MemWrite;
+    wire [31:0] WriteData, DataAdr;//写入的数据和对应的地址
+    wire        MemWrite;//内存写使能信号
 
     // instantiate device to be tested
-    arm  dut(.clk(clk),  .WriteDataM(WriteData), .DataAdrM(WriteData), .MemWriteM(MemWrite),.reset(reset));
-
+    arm  dut(.clk(clk),  .WriteDataM(WriteData), .DataAdrM(DataAdr), .MemWriteM(MemWrite),.reset(reset));
+    //damn一开始引脚对应错了，我说怎么不对。
    //initialize test
     initial begin
         reset <= 1;  # 22; reset <= 0;

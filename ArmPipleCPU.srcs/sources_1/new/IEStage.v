@@ -102,8 +102,9 @@ module IEStage(
     assign memwriteev = memwritee & condexe;
     assign brantakee = branche & condexe;
     assign wa3ev = wa3e;
-    assign writedatae=rd2e;//之前赋值顺序反了
-
+    // assign writedatae=rd2e;//之前赋值顺序反了
+    //改一下试一下
+    assign writedatae= srcbev;
 
 
 

@@ -43,7 +43,7 @@ module Extent(
                 end
             end
             ME: begin
-                imm32 = {8'b0000_0000,imm24[23:0]}; // Zero-extend to 32 bits,最简单的
+                imm32 = {20'b0000_0000_0000_0000_0000, imm24[11:0]}; // Zero-extend to 32 bits//damn之前取错位了
             end
             BR: begin
                 //通过对imm24进行符号扩展，将其向左移动2位。(操作的先后顺序不一样会导致结果不一样吗？)

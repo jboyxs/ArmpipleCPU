@@ -24,3 +24,5 @@ For course design bands
 1. ip核的地址加1就足够了
 2. ifstage已测试
 3. IERegister也没问题
+4. writedatae直接连到r2de被弃用，因为这样的话还要再加一个forword的选择器，现在是按照书上的格式。（这一点记住改动）
+5. 内存指令扩展数位数取成24位，改回12位了。

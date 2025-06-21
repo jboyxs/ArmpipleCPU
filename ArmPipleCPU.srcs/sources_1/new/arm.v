@@ -23,7 +23,7 @@
 module arm(
     input clk,
     input reset,//加入reset信号
-    output reg [31:0] WriteDataM,DataAdrM,
+    output  [31:0] WriteDataM,DataAdrM,
     output MemWriteM
 
     );
@@ -368,12 +368,14 @@ hazard hazard(
 );
 //IO
 assign MemWriteM = memwritem;
-always @(*) begin
-    if (MemWriteM) begin
-        WriteDataM=writedatam;
-        DataAdrM=resultm;
-    end
-end
+assign WriteDataM=writedatam;
+assign DataAdrM=resultm;
+// always @(*) begin
+//     if (MemWriteM) begin
+//         WriteDataM=writedatam;
+//         DataAdrM=resultm;
+//     end
+// end
 
 
 endmodule
