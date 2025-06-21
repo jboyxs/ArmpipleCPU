@@ -1,0 +1,31 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ArmPipleCPU.gen/sources_1/ip/dist_mem_gen_dm/sim/dist_mem_gen_dm.v" \
+"../../../../ArmPipleCPU.gen/sources_1/ip/dist_mem_im/sim/dist_mem_im.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/ALU.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/AMRegister.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/AMStage.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/CondUnite.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/CtrUnite.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/Extent.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/IDRegister.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/IDStage.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/IERegister.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/IEStage.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/Mux2.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/Mux2_32.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/Mux3_32.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/RegFile.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/WBRegister.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/arm.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/eqcmp.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/hazard.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/ifstage.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/shift.v" \
+"../../../../ArmPipleCPU.srcs/sim_1/new/arm1_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

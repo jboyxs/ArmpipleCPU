@@ -1,106 +1,67 @@
-`timescale 1ns / 1ps
-
-module IFStage_tb;
-
-    // 输入信号
-    reg clk;
-    reg reset;
-    reg [31:0] pcforward;
-    reg [31:0] pcdelay;
-    reg pcsrcw;
-    reg branchtakene;
-    reg stallf;
-    
-    // 输出信号
-    wire [31:0] pcplus8;
-    wire [31:0] instrf;
-    
-    // 实例化被测试模块
-    ifstage uut (
-        .clk(clk),
-        .reset(reset),
-        .pcforward(pcforward),
-        .pcdelay(pcdelay),
-        .pcsrcw(pcsrcw),
-        .branchtakene(branchtakene),
-        .stallf(stallf),
-        .pcplus8(pcplus8),
-        .instrf(instrf)
-    );
-    
-    // 时钟生成：周期为 10ns（100MHz）
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk;
-    end
-    
-    // 测试激励
-    initial begin
-        // 初始化输入
-        reset = 1;
-        pcforward = 32'h00000000;
-        pcdelay = 32'h00000000;
-        pcsrcw = 0;
-        branchtakene = 0;
-        stallf = 0;
-        
-        // 测试用例 1：复位
-        #10;
-        reset = 0; // 解除复位
-        #10;
-        $display("Test 1: After reset, pcf = %h, instrf = %h, pcplus8 = %h", 
-                 uut.pcf, instrf, pcplus8);
-        // 预期：pcf = 32'h00000000, instrf = 32'h2001000A, pcplus8 = 32'h00000008
-        
-        // 测试用例 2：正常 PC 自增
-        #10;
-        $display("Test 2: Normal PC increment, pcf = %h, instrf = %h, pcplus8 = %h", 
-                 uut.pcf, instrf, pcplus8);
-        // 预期：pcf = 32'h00000004, instrf = 32'h2002000B, pcplus8 = 32'h0000000C
-        
-        // 测试用例 3：暂停（stallf = 1）
-        stallf = 1;
-        #10;
-        $display("Test 3: Stall, pcf = %h, instrf = %h, pcplus8 = %h", 
-                 uut.pcf, instrf, pcplus8);
-        // 预期：pcf 保持不变（32'h00000004）
-        stallf = 0;
-        #10;
-        
-        // 测试用例 4：延迟槽（pcsrcw = 1）
-        pcdelay = 32'h00000010; // 延迟槽地址
-        pcsrcw = 1;
-        #10;
-        $display("Test 4: Delay slot, pcf = %h, instrf = %h, pcplus8 = %h", 
-                 uut.pcf, instrf, pcplus8);
-        // 预期：pcf = 32'h00000010, instrf = ROM[0x10/4], pcplus8 = 32'h00000018
-        pcsrcw = 0;
-        #10;
-        
-        // 测试用例 5：分支跳转（branchtakene = 1）
-        pcforward = 32'h00000020; // 分支目标地址
-        branchtakene = 1;
-        #10;
-        $display("Test 5: Branch taken, pcf = %h, instrf = %h, pcplus8 = %h", 
-                 uut.pcf, instrf, pcplus8);
-        // 预期：pcf = 32'h00000020, instrf = ROM[0x20/4], pcplus8 = 32'h00000028
-        branchtakene = 0;
-        #10;
-        
-        // 测试用例 6：恢复正常 PC 自增
-        $display("Test 6: Resume normal PC increment, pcf = %h, instrf = %h, pcplus8 = %h", 
-                 uut.pcf, instrf, pcplus8);
-        // 预期：pcf = 32'h00000024, instrf = ROM[0x24/4], pcplus8 = 32'h0000002C
-        
-        // 结束仿真
-        #10;
-        $finish;
-    end
-    
-    // 监控信号变化
-    initial begin
-        $monitor("Time=%0t: reset=%b, stallf=%b, pcsrcw=%b, branchtakene=%b, pcf=%h, instrf=%h, pcplus8=%h",
-                 $time, reset, stallf, pcsrcw, branchtakene, uut.pcf, instrf, pcplus8);
-    end
-
+module controller(input logic clk, reset,
+                 input logic [31:12] InstrD,
+                 input logic [3:0] ALUFlagsE,
+                 output logic [1:0] RegSrcD, ImmSrcD,
+                 output logic ALUSrcE, BranchTakenE,
+                 output logic [1:0] ALUControlE,
+                 output logic MemWriteM,
+                 output logic MemtoRegW, PCSrcW, RegWriteW,
+                 output logic RegWriteM, MemtoRegE,
+                 output logic PCWrPendingF,
+                 input logic FlushE);
+    logic [9:0] controlsD;
+    logic CondExE, ALUOpD;
+    logic [1:0] ALUControlD;
+    logic ALUSrcD;
+    logic MemtoRegD, MemtoRegM;
+    logic RegWriteD, RegWriteE, RegWriteGatedE;
+    logic MemWriteD, MemWriteE, MemWriteGatedE;
+    logic BranchD, BranchE;
+    logic [1:0] FlagWriteD, FlagWriteE;
+    logic PCSrcD, PCSrcE, PCSrcM;
+    logic [3:0] FlagsE, FlagsNextE, CondE;
+    // Decode stage
+    always_comb
+        casex(InstrD[27:26])
+            2'b00: if (InstrD[25]) controlsD = 10'b0000101001; // DP imm
+                   else controlsD = 10'b0000001001; // DP reg
+            2'b01: if (InstrD[20]) controlsD = 10'b0001111000; // LDR
+                   else controlsD = 10'b1001110100; // STR
+            2'b10: controlsD = 10'b0110100010; // B
+            default: controlsD = 10'bxxxxxxxxxx; // unimplemented
+        endcase
+    assign {RegSrcD, ImmSrcD, ALUSrcD, MemtoRegD, RegWriteD, MemWriteD, BranchD, ALUOpD} = controlsD;
+    always_comb
+        if (ALUOpD) begin
+            case(InstrD[24:21])
+                4'b0100: ALUControlD = 2'b00; // ADD
+                4'b0010: ALUControlD = 2'b01; // SUB
+                4'b0000: ALUControlD = 2'b10; // AND
+                4'b1100: ALUControlD = 2'b11; // ORR
+                default: ALUControlD = 2'b00; // unimplemented
+            endcase
+            FlagWriteD[1] = InstrD[20];
+            FlagWriteD[0] = InstrD[20] & (ALUControlD == 2'b00 | ALUControlD == 2'b01);
+        end else begin
+            ALUControlD = 2'b00;
+            FlagWriteD = 2'b00;
+        end
+    assign PCSrcD = ((InstrD[15:12] == 4'b1111) & RegWriteD) | BranchD;
+    // Execute stage
+    floprc #(7) flushedregsE(clk, reset, FlushE, {FlagWriteD, BranchD, MemWriteD, RegWriteD, PCSrcD, MemtoRegD}, {FlagWriteE, BranchE, MemWriteE, RegWriteE, PCSrcE, MemtoRegE});
+    flopr #(3) regsE(clk, reset, {ALUSrcD, ALUControlD}, {ALUSrcE, ALUControlE});
+    flopr #(4) condregE(clk, reset, InstrD[31:28], CondE);
+    flopr #(4) flagsreg(clk, reset, FlagsNextE, FlagsE);
+    // write and Branch controls are conditional
+    conditional Cond(CondE, FlagsE, ALUFlagsE, FlagWriteE, CondExE, FlagsNextE);
+    assign BranchTakenE = BranchE & CondExE;
+    assign RegWriteGatedE = RegWriteE & CondExE;
+    assign MemWriteGatedE = MemWriteE & CondExE;
+    assign PCSrcGatedE = PCSrcE & CondExE;
+    // Memory stage
+    flopr #(4) regsM(clk, reset, {MemWriteGatedE, MemtoRegE, RegWriteGatedE, PCSrcGatedE}, {MemWriteM, MemtoRegM, RegWriteM, PCSrcM});
+    // Writeback stage
+    flopr #(3) regsW(clk, reset, {MemtoRegM, RegWriteM, PCSrcM}, {MemtoRegW, RegWriteW, PCSrcW});
+    // Hazard Prediction
+    assign PCWrPendingF = PCSrcD | PCSrcE | PCSrcM;
 endmodule

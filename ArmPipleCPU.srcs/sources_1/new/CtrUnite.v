@@ -63,7 +63,7 @@ begin
         end
         default: begin
            // Default case to handle unexpected op values
-            controls=10'bx;
+            controls=10'bxxxxxxxxxx;
         end
     endcase
 end
@@ -76,7 +76,7 @@ always @(*) begin
             `SUB: aluctronld=2'b01;
             `AND: aluctronld =2'b10;
             `ORR: aluctronld =2'b11;
-            default: aluctronld = 2'bxx; // Default case for unexpected funct values
+            default: aluctronld = 2'b00; // Default case for unexpected funct values
 
         endcase
     

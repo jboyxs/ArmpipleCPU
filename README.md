@@ -20,3 +20,7 @@ For course design bands
 8. 怎么检查，怎么debug
 9. 加油 
 10. 基本检查完毕，现在来试试仿真。
+## 第一次检测没过
+1. ip核的地址加1就足够了
+2. ifstage已测试
+3. IERegister也没问题

@@ -28,7 +28,7 @@ module RegFile(
     output wire [31:0] rd1,rd2,rd3
     );
 reg [31:0] regfile [15:0]; // 16个32位寄存器
-always @(posedge clk) 
+always @(negedge clk) //改为下降试试沿,真还成了。
 if (we3) regfile[wa3] <= wd3; // 写寄存器
 assign rd1=(ra1 == 4'b1111) ? r15 : regfile[ra1]; // 读取寄存器1
 assign rd2=(ra2 == 4'b1111) ? r15 : regfile[ra2]; // 读取寄存器2

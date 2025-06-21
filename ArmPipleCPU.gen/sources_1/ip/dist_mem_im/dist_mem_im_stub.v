@@ -4,8 +4,8 @@
 // Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
 // Date        : Tue Jun 17 20:10:13 2025
 // Host        : Firstputve running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_im/dist_mem_im_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top dist_mem_im -prefix
+//               dist_mem_im_ dist_mem_im_stub.v
 // Design      : dist_mem_im
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1
