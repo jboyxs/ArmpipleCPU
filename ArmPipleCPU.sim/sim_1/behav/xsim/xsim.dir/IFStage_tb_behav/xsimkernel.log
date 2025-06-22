@@ -1,7 +1,0 @@
-Running: xsim.dir/IFStage_tb_behav/xsimk.exe -simmode gui -wdb IFStage_tb_behav.wdb -simrunnum 0 -socket 55781
-Design successfully loaded
-Design Loading Memory Usage: 29672 KB (Peak: 29672 KB)
-Design Loading CPU Usage: 765 ms
-Simulation completed
-Simulation Memory Usage: 30564 KB (Peak: 30564 KB)
-Simulation CPU Usage: 874 ms

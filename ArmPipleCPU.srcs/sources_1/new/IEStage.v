@@ -75,6 +75,17 @@ module IEStage(
         .d2(memtoexe),
         .y(srcbev)
     );
+    Mux3_32 forwarwritedata_mux(
+        .s0(forwardbe[0]),
+        .s1(forwardbe[1]),
+        .d0(rd2e),
+        .d1(resultew),
+        .d2(memtoexe),
+        .y(writedatae)
+    );
+
+
+
     Mux2_32 alusrc_mux(
         .s(alusrce),
         .d0(srcbev),
@@ -104,7 +115,7 @@ module IEStage(
     assign wa3ev = wa3e;
     // assign writedatae=rd2e;//之前赋值顺序反了
     //改一下试一下
-    assign writedatae= srcbev;
+    // assign writedatae= srcbev;
 
 
 
