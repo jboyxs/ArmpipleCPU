@@ -18,7 +18,6 @@ Compiling module xil_defaultlib.IDRegister
 Compiling module xil_defaultlib.CtrUnite
 Compiling module xil_defaultlib.Mux2_4
 Compiling module xil_defaultlib.RegFile
-Compiling module xil_defaultlib.shift
 Compiling module xil_defaultlib.Extent
 Compiling module xil_defaultlib.IDStage
 Compiling module xil_defaultlib.IERegister

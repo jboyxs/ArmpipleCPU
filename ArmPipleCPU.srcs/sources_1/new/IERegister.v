@@ -16,7 +16,8 @@ module IERegister(
     input [3:0] wa3d,
     input [3:0] flagsv,
     // RF 读出来的值
-    input [31:0] rd1d, rd2d, rd2shiftd,
+    // input [31:0] rd1d, rd2d, rd2shiftd,
+    input [31:0] rd1d, rd2d,
     // 扩展立即数
     input [31:0] extimmd,
     // 时钟
@@ -44,7 +45,8 @@ module IERegister(
     output reg [3:0] wa3e,
     output reg [3:0] flagse,
     // RF 读出来的值
-    output reg [31:0] rd1e, rd2e, rd2shifte,
+    // output reg [31:0] rd1e, rd2e, rd2shifte,
+    output reg [31:0] rd1e, rd2e,
     // 扩展立即数
     output reg [31:0] extimme,
     // 为冲突单元的比较所用的信号
@@ -68,7 +70,7 @@ module IERegister(
             flagse <= 4'b0000;
             rd1e <= 32'b0;
             rd2e <= 32'b0;
-            rd2shifte <= 32'b0;
+            // rd2shifte <= 32'b0;
             extimme <= 32'b0;
             RA1E <= 4'b0000;
             RA2E <= 4'b0000;
@@ -88,7 +90,7 @@ module IERegister(
             flagse <= 4'b0000;
             rd1e <= 32'b0;
             rd2e <= 32'b0;
-            rd2shifte <= 32'b0;
+            // rd2shifte <= 32'b0;
             extimme <= 32'b0;
             RA1E <= 4'b0000;
             RA2E <= 4'b0000;
@@ -108,7 +110,7 @@ module IERegister(
             flagse <= flagsv;
             rd1e <= rd1d;
             rd2e <= rd2d;
-            rd2shifte <= rd2shiftd;
+            // rd2shifte <= rd2shiftd;
             extimme <= extimmd;
             RA1E <= RA1D;
             RA2E <= RA2D;

@@ -70,7 +70,7 @@ module arm(
     wire [31:0] wa3w;
     wire regwritew;
     wire [31:0] extimmd;
-    wire [31:0] rd1d, rd2d,rd2shiftd;
+    wire [31:0] rd1d, rd2d;//删除移位
     wire [3:0] condd;
     wire regwrited;
     wire [1:0] flagwrited;
@@ -93,7 +93,7 @@ module arm(
     .extimmd(extimmd),//扩展立即数
     .rd1d(rd1d),
     .rd2d(rd2d),
-    .rd2shiftd(rd2shiftd),//相关寄存器里面存的值
+    // .rd2shiftd(rd2shiftd),//相关寄存器里面存的值
     .condd(condd),//条件
     //CtrUnite传到寄存器的值
     .regwrited(regwrited),
@@ -125,7 +125,7 @@ module arm(
     wire [3:0] conde;
     wire [3:0] wa3e;
     wire [3:0] flagse;
-    wire [31:0] rd1e,rd2e,rd2shifte;
+    wire [31:0] rd1e,rd2e;//删除移位
     wire [31:0] extimme;
     wire [3:0] RA1E;
     wire [3:0] RA2E;
@@ -149,7 +149,7 @@ module arm(
     //RF读出来的值
     .rd1d(rd1d),
     .rd2d(rd2d),
-    .rd2shiftd(rd2shiftd),
+    // .rd2shiftd(rd2shiftd),
     //扩展立即数
     .extimmd(extimmd),
     //时钟
@@ -179,7 +179,7 @@ module arm(
     //RF读出来的值
     .rd1e(rd1e),
     .rd2e(rd2e),
-    .rd2shifte(rd2shifte),
+    // .rd2shifte(rd2shifte),
     //扩展立即数
     .extimme(extimme),
     //为冲突单元的比较所用的信号
@@ -215,7 +215,7 @@ module arm(
     .conde(conde),
     .wa3e(wa3e),
     //RF读出来的值
-    .rd1e(rd1e),.rd2e(rd2e),.rd2shifte(rd2shifte),//rd3e不需要，里面存的是Rs的值，是偏移量寄存器的移位值
+    .rd1e(rd1e),.rd2e(rd2e),//.rd2shifte(rd2shifte),//rd3e不需要，里面存的是Rs的值，是偏移量寄存器的移位值
     //扩展立即数
     .extimme(extimme),
     //一开始漏掉的三个

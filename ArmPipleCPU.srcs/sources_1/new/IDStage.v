@@ -28,7 +28,8 @@ module IDStage(
     input  [31:0] resultw,
     input regwritew,
     output [31:0] extimmd,//扩展立即数
-    output [31:0] rd1d,rd2d,rd2shiftd,//相关寄存器里面存的值
+    // output [31:0] rd1d,rd2d,rd2shiftd,//相关寄存器里面存的值
+    output [31:0] rd1d,rd2d,
     output [3:0] condd,//条件
     //CtrUnite传到寄存器的值
     output regwrited,
@@ -106,17 +107,17 @@ RegFile RegFile(
     .rd2(rd2d),
     .rd3(rd3d)
     );
-    wire [4:0]shift_amount;//5位移位量
-    assign shift_amount = (instrd[4]==1'b1) ? rd3d[4:0] : instrd[11:7]; // 取指令的第11到7位作为移位量/Rs里存的值
-    //我不知道把多位赋值给低位是从高位开始截断，还是从低位开始截断
-    shift shift(
-    .data_in(rd2d),      // 输入数据
-    .shift_amount(shift_amount), //移位量
-    .shift_type(instrd[6:5]),   // 移位类型
-    // input               carry_in,     // 输入的CPSR的C标志位
-    .data_out(rd2shiftd)     // 移位结果
-    // output reg          carry_out     // 移位产生的C标志位
-    );
+    // wire [4:0]shift_amount;//5位移位量
+    // assign shift_amount = (instrd[4]==1'b1) ? rd3d[4:0] : instrd[11:7]; // 取指令的第11到7位作为移位量/Rs里存的值
+    // //我不知道把多位赋值给低位是从高位开始截断，还是从低位开始截断
+    // shift shift(
+    // .data_in(rd2d),      // 输入数据
+    // .shift_amount(shift_amount), //移位量
+    // .shift_type(instrd[6:5]),   // 移位类型
+    // // input               carry_in,     // 输入的CPSR的C标志位
+    // .data_out(rd2shiftd)     // 移位结果
+    // // output reg          carry_out     // 移位产生的C标志位
+    // );
 
    Extent Extent(
     .immsrcd(immsrcd),

@@ -36,7 +36,8 @@ module IEStage(
     input  [3:0] conde,
     input  [3:0] wa3e,
     //RF读出来的值
-    input  [31:0] rd1e,rd2e,rd2shifte,//rd3e不需要，里面存的是Rs的值，是偏移量寄存器的移位值
+    // input  [31:0] rd1e,rd2e,rd2shifte,//rd3e不需要，里面存的是Rs的值，是偏移量寄存器的移位值
+    input  [31:0] rd1e,rd2e,
     //扩展立即数
     input  [31:0] extimme,
     //一开始漏掉的三个
@@ -70,19 +71,19 @@ module IEStage(
     Mux3_32 forwardb_mux(
         .s0(forwardbe[0]),
         .s1(forwardbe[1]),
-        .d0(rd2shifte),
+        .d0(rd2e),
         .d1(resultew),
         .d2(memtoexe),
         .y(srcbev)
     );
-    Mux3_32 forwarwritedata_mux(
-        .s0(forwardbe[0]),
-        .s1(forwardbe[1]),
-        .d0(rd2e),
-        .d1(resultew),
-        .d2(memtoexe),
-        .y(writedatae)
-    );
+    // Mux3_32 forwarwritedata_mux(
+    //     .s0(forwardbe[0]),
+    //     .s1(forwardbe[1]),
+    //     .d0(rd2e),
+    //     .d1(resultew),
+    //     .d2(memtoexe),
+    //     .y(writedatae)
+    // );
 
 
 
@@ -115,7 +116,7 @@ module IEStage(
     assign wa3ev = wa3e;
     // assign writedatae=rd2e;//之前赋值顺序反了
     //改一下试一下
-    // assign writedatae= srcbev;
+    assign writedatae= srcbev;
 
 
 
