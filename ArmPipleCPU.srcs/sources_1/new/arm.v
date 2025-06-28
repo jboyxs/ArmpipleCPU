@@ -23,6 +23,10 @@
 module arm(
     input clk,
     input reset,//加入reset信号
+    output [31:0] pcf,//解耦imem
+    input [31:0] instrfin,//解耦imem
+    //解耦dmem
+    input [31:0] readmin,
     output  [31:0] WriteDataM,DataAdrM,
     output MemWriteM
 
@@ -42,6 +46,10 @@ module arm(
     .pcdelay(resultw),
     .pcsrcw(pcsrcw),
     .branchtakene(branchtakene),
+//解耦imem
+    .pcf(pcf),
+    .instrfin(instrfin),
+
     .stallf(stallf),
     .pcplus8(pcplus8),
     .instrf(instrf)
@@ -274,6 +282,7 @@ module arm(
     .resultm(resultm),
     .writedatam(writedatam),
     .wa3m(wa3m),
+    .readmin(readmin),
     //输出
     .pcsrcmv(pcsrcmv),
     .regwritemv(regwritemv),
@@ -366,7 +375,8 @@ hazard hazard(
     .FlushD(flushd), // FlushD 由 en 控制
     .FlushE(flushe)
 );
-//IO
+// //IO
+//解耦dmem
 assign MemWriteM = memwritem;
 assign WriteDataM=writedatam;
 assign DataAdrM=resultm;

@@ -27,7 +27,7 @@ module arm1_tb();
     wire        MemWrite;//内存写使能信号
 
     // instantiate device to be tested
-    arm  dut(.clk(clk),  .WriteDataM(WriteData), .DataAdrM(DataAdr), .MemWriteM(MemWrite),.reset(reset));
+    top  dut(.clk(clk),  .WriteDataM(WriteData), .DataAdrM(DataAdr), .MemWriteM(MemWrite),.reset(reset));
     //damn一开始引脚对应错了，我说怎么不对。
    //initialize test
     initial begin

@@ -27,13 +27,17 @@ module ifstage(
     input [31:0] pcdelay,
     input  pcsrcw,
     input branchtakene,
+    output reg [31:0] pcf,
+    input [31:0] instrfin,
     input stallf,
     output [31:0] pcplus8,
     output [31:0] instrf
     );
-    reg [31:0] pc1,pc2,pcf;
+    // reg [31:0] pc1,pc2,pcf;解耦imem
+    reg [31:0] pc1,pc2;
     wire [31:0] pcplus4;
-    dist_mem_im imem(.a(pcf[5:0]),.spo(instrf));
+    // dist_mem_im imem(.a(pcf[5:0]),.spo(instrf));
+    assign instrf = instrfin; // Assuming instrfin is the instruction fetched from memory
     // Fixed memory module instantiation with proper ports
     // dist_men_im imem(.port1(), .port2(), ...); // Uncomment and add proper ports
    
