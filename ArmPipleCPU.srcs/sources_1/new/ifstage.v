@@ -58,8 +58,8 @@ module ifstage(
     begin
         if (reset) begin
             pcf <= 32'h00000000; // Reset PC to 0
-            pc1 <= 32'h00000000;
-            pc2 <= 32'h00000000;
+//            pc1 <= 32'h00000000;
+//            pc2 <= 32'h00000000;
             // pcplus4 is now a wire, so it doesn't need initialization
         end
         else if (stallf)

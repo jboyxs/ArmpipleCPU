@@ -67,7 +67,7 @@ module arm(
         .instrd(instrd)
     );
     //译码阶段
-    wire [31:0] wa3w;
+    wire [3:0] wa3w;
     wire regwritew;
     wire [31:0] extimmd;
     wire [31:0] rd1d, rd2d;//删除移位
@@ -83,6 +83,9 @@ module arm(
     wire [3:0] wa3d;
     wire [3:0] RA1D;
     wire [3:0] RA2D;
+    //为寄存器上升沿新增冲突控制
+    wire forwardawd, forwardbwd;
+    wire [31:0] resultwv;//拿到IDStage的前面定义
     IDStage IDStage(
     .clk(clk),
     .instrd(instrd),
@@ -110,7 +113,11 @@ module arm(
     .wa3d(wa3d),//用于Rd是第几个寄存器（Rd的地址）
     //为冲突单元的比较所用的信号
     .RA1D(RA1D),
-    .RA2D(RA2D)
+    .RA2D(RA2D),
+    //为寄存器上升沿新增冲突控制
+    .resultwv(resultwv), 
+    .forwardawd(forwardawd),
+    .forwardbwd(forwardbwd)
     );
     //寄存器
     wire [3:0] flagsv;
@@ -294,7 +301,7 @@ module arm(
     //寄存器
     wire memtoregw;
     wire [31:0] readw;
-    wire [31:0] resultwv;
+    // wire [31:0] resultwv;//拿到IDStage的前面定义
     WBRegister WBRegister(
     .clk(clk),
     .reset(reset), // 异步复位
@@ -353,6 +360,19 @@ eqcmp #(4) m5(
     .b(RA2D),
     .y(Match_2D_E)
 );
+//新增为寄存器上升沿文件准备的冲突比较
+wire Match_1D_W, Match_2D_W;
+eqcmp #(4) m6(
+    .a(wa3w),
+    .b(RA1D),
+    .y(Match_1D_W)
+);
+eqcmp #(4) m7(
+    .a(wa3w),
+    .b(RA2D),
+    .y(Match_2D_W)
+);
+
 assign Match_12D_E = Match_1D_E | Match_2D_E;
 assign PCWrPendingF=pcsrcd+pcsrce+pcsrcm;
 //冲突单元
@@ -374,6 +394,11 @@ hazard hazard(
     .StallD(stalld), // StallD 由 clr 控制
     .FlushD(flushd), // FlushD 由 en 控制
     .FlushE(flushe)
+    //为寄存器上升沿新增的比较信号
+    ,.Match_1D_W(Match_1D_W),
+    .Match_2D_W(Match_2D_W),
+    .forwardawd(forwardawd),
+    .forwardbwd(forwardbwd)
 );
 // //IO
 //解耦dmem

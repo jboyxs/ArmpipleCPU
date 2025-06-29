@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="dist_mem_im_synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1751121183">
+<GenRun Id="dist_mem_im_synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1751169191">
   <File Type="PA-TCL" Name="dist_mem_im.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="dist_mem_im_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="dist_mem_im_reports.tcl"/>
   <File Type="RDS-RDS" Name="dist_mem_im.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="dist_mem_im_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="dist_mem_im_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="dist_mem_im_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="dist_mem_im.dcp"/>
@@ -50,9 +50,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

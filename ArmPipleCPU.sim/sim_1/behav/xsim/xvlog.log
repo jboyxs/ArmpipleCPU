@@ -1,46 +1,50 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_gen_dm/sim/dist_mem_gen_dm.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_gen_dm/sim/dist_mem_gen_dm.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module dist_mem_gen_dm
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_im/sim/dist_mem_im.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_im/sim/dist_mem_im.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module dist_mem_im
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ALU
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/AMRegister.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/AMRegister.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module AMRegister
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/AMStage.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/AMStage.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module AMStage
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/CondUnite.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/CondUnite.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module CondUnite
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/CtrUnite.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/CtrUnite.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module CtrUnite
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/Extent.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Extent.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Extent
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/IDRegister.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IDRegister.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module IDRegister
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/IDStage.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IDStage.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module IDStage
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/IERegister.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IERegister.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module IERegister
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/IEStage.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IEStage.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module IEStage
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux2.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux2.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Mux2_4
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux2_32.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux2_32.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Mux2_32
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux3_32.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux3_32.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Mux3_32
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/RegFile.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/RegFile.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module RegFile
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/WBRegister.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/WBRegister.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module WBRegister
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/arm.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/arm.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module arm
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/eqcmp.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/eqcmp.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module eqcmp
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/hazard.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/hazard.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module hazard
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/ifstage.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ifstage.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ifstage
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sources_1/new/top.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/top.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module top
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/LJW/ArmpipleCPU/ArmPipleCPU.srcs/sim_1/new/arm1_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sim_1/new/arm1_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module arm1_tb

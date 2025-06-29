@@ -46,8 +46,10 @@ module IDStage(
     output [3:0] wa3d,//用于Rd是第几个寄存器（Rd的地址）
     //为冲突单元的比较所用的信号
     output [3:0] RA1D,
-    output [3:0] RA2D
-
+    output [3:0] RA2D,
+    //新增冲突控制
+    input [31:0] resultwv,//利用这个再做一次转发
+    input forwardawd,forwardbwd
 
 
 
@@ -94,6 +96,8 @@ Mux2_4 Mux2_4forra2(
     );
     assign RA2D = ra2; // RA2D是ID阶段的ra2输出
 wire [31:0] rd3d; // Rs寄存器的值
+//转发的中间变量
+wire [31:0] rd1dv,rd2dv; // 用于转发的寄存器值
 RegFile RegFile(
     .clk(clk),
     .we3(regwritew),
@@ -103,9 +107,19 @@ RegFile RegFile(
     .wa3(wa3w),
     .wd3(resultw), 
     .r15(pcplus8d),
-    .rd1(rd1d),
-    .rd2(rd2d),
+    .rd1(rd1dv),
+    .rd2(rd2dv),
     .rd3(rd3d)
+    );
+    Mux2_32 Mux2_32forrda(.d0(rd1dv),
+    .d1(resultwv),
+    .s(forwardawd),
+    .y(rd1d)
+    );
+    Mux2_32 Mux2_32forrdb(.d0(rd2dv),
+    .d1(resultwv),
+    .s(forwardbwd),
+    .y(rd2d)
     );
     // wire [4:0]shift_amount;//5位移位量
     // assign shift_amount = (instrd[4]==1'b1) ? rd3d[4:0] : instrd[11:7]; // 取指令的第11到7位作为移位量/Rs里存的值
@@ -118,6 +132,7 @@ RegFile RegFile(
     // .data_out(rd2shiftd)     // 移位结果
     // // output reg          carry_out     // 移位产生的C标志位
     // );
+//再加一个转发
 
    Extent Extent(
     .immsrcd(immsrcd),
