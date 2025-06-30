@@ -1,6 +1,6 @@
 //define opcodes
 `define AND 4'd0
-`define EOR 4'd1
+`define MUL 4'd1//eor
 `define SUB 4'd2
 `define RSB 4'd3
 `define ADD 4'd4
@@ -30,7 +30,7 @@ module CtrUnite(
 
     output reg [1:0] flagwrited,
     output alusrcd,
-    output reg [1:0] aluctronld,
+    output reg [2:0] aluctronld,
     
     output memtoregd,
     output memwrited,
@@ -75,22 +75,23 @@ always @(*) begin
     if(aluop) begin
         movd = 1'b0; // 默认情况下movd为0
         case(funct[4:1])
-            `ADD : aluctronld = 2'b00; //AND
-            `SUB: aluctronld=2'b01;
-            `AND: aluctronld =2'b10;
-            `ORR: aluctronld =2'b11;
+            `ADD : aluctronld = 3'b010; //AND
+            `SUB: aluctronld=3'b011;
+            `AND: aluctronld =3'b000;
+            `ORR: aluctronld =3'b001;
+            `MUL: aluctronld =3'b100;
             `MOV: begin
-                aluctronld = 2'b00; // MOV指令
+                aluctronld = 3'b001; // MOV指令
                 movd = 1'b1; // 设置movd为1，表示这是一个MOV指令
             end
-            default: aluctronld = 2'b00; // Default case for unexpected funct values
+            default: aluctronld = 3'b000; // Default case for unexpected funct values
 
         endcase
     
 flagwrited[1] =funct[0];
 flagwrited[0]=funct[0]&(aluctronld==2'b00|aluctronld==2'b01); 
     end else begin
-        aluctronld=2'b00;
+        aluctronld=3'b010;
         flagwrited=2'b00; // Default case for non-alu operations
     end
 end

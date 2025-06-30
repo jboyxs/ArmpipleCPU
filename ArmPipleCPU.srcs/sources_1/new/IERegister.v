@@ -8,7 +8,7 @@ module IERegister(
     input memtoregd,
     input memwrited,
     // ALU 相关控制信号
-    input [1:0] alucontrold,
+    input [2:0] alucontrold,
     input alusrcd,
     input [1:0] flagwrited,
     // 两个直接传递的值，又加了一个
@@ -39,7 +39,7 @@ module IERegister(
     output reg memtorege,
     output reg memwritee,
     // ALU 相关控制信号
-    output reg [1:0] alucontrole,
+    output reg [2:0] alucontrole,
     output reg alusrce,
     output reg [1:0] flagwritee,
     // 两个直接传递的值，又加了一个
@@ -64,7 +64,7 @@ module IERegister(
             branche <= 1'b0;
             memtorege <= 1'b0;
             memwritee <= 1'b0;
-            alucontrole <= 2'b00;
+            alucontrole <= 3'b000;
             alusrce <= 1'b0;
             flagwritee <= 2'b00;
             conde <= 4'b0000;
@@ -85,7 +85,7 @@ module IERegister(
             branche <= 1'b0;
             memtorege <= 1'b0;
             memwritee <= 1'b0;
-            alucontrole <= 2'b00;
+            alucontrole <= 3'b000;
             alusrce <= 1'b0;
             flagwritee <= 2'b00;
             conde <= 4'b0000;

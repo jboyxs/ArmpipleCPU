@@ -75,7 +75,7 @@ module arm(
     wire regwrited;
     wire [1:0] flagwrited;
     wire alusrcd;
-    wire [1:0] aluctronld;
+    wire [2:0] aluctronld;
     wire memtoregd;
     wire memwrited;
     wire pcsrcd;
@@ -129,7 +129,7 @@ module arm(
     wire regwritee;
     wire branche;
     wire memtorege;
-    wire [1:0] aluctronle;
+    wire [2:0] aluctronle;
     wire alusrce;
     wire [1:0] flagwritee;
     wire [3:0] conde;

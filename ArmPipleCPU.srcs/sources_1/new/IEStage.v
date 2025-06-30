@@ -29,7 +29,7 @@ module IEStage(
     input  memtorege,
     input  memwritee,
     //alu相关控制信号
-    input  [1:0] alucontrole,
+    input  [2:0] alucontrole,
     input  alusrce,
     input  [1:0] flagwritee,
     //两个直接传递的值

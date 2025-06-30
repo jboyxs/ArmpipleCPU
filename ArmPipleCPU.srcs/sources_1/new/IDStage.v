@@ -36,7 +36,7 @@ module IDStage(
 
     output [1:0] flagwrited,
     output alusrcd,
-    output [1:0] aluctronld,
+    output [2:0] aluctronld,
     
     output memtoregd,
     output memwrited,
