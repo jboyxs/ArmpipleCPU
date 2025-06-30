@@ -38,7 +38,7 @@ For course design bands
 3. B 支持，且支持条件执行。
 4. MOV R1, #3
 5. MUL R,R,R
-6. 添加移位
+6. 添加移位,添加了LSL R ,#2的格式但是还没有测试
 ### 优化频率与解耦
 1. 解耦imem/dmem
 2. 还要加上停顿，RA1D与WA3W的比较，具体是在IEregister上加上停顿
