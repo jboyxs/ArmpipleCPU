@@ -58,7 +58,10 @@ module IEStage(
     output [31:0] writedatae,
     output [3:0] wa3ev,
     //添加MOV指令
-    input move
+    input move,
+    //添加移位指令
+    input she,
+    input [1:0] shtypee
     );
     //计算源选择模块(damn用ai写接口定义错了)
     wire [31:0] srcae, srcbev,srcbe;
@@ -105,7 +108,8 @@ module IEStage(
         .Result(resultev),//添加MOV指令
         .Flags(aluflags)
     ); 
-assign resulte = move ? srcbe : resultev; //添加MOV指令//move等于1时将srcbe直接给到resulte//添加MOV指令//move等于1时将立即数直接给到resulte//或许srcbe可以换成extimme,现在的依赖alusrce的值
+    //先注释掉在result前面过一个三路选择器
+// assign resulte = move ? srcbe : resultev; //添加MOV指令//move等于1时将srcbe直接给到resulte//添加MOV指令//move等于1时将立即数直接给到resulte//或许srcbe可以换成extimme,现在的依赖alusrce的值
     CondUnite CondUnite (.conde(conde),
                   .flagse(flagse),
                   .aluflags(aluflags),
@@ -121,6 +125,27 @@ assign resulte = move ? srcbe : resultev; //添加MOV指令//move等于1时将sr
     // assign writedatae=rd2e;//之前赋值顺序反了
     //改一下试一下
     assign writedatae= srcbev;
+    //添加移位指令
+    wire [31:0] shresult;//移位结果
+    shift shifter(
+        .datain(rd1e),      // 输入数据
+        .shiftamount(extimme[4:0]), //移位量
+        .shifttype(shtypee),   // 移位类型
+        .data_out(shresult)     // 移位结果
+
+    );
+    //三路选择器
+   Mux3_32 resulte_mux(
+        .d0(resultev), // ALU计算结果
+        .d1(shresult),    // 立即数
+        .d2(srcbe), // 移位结果
+        .s0(she),     // MOV指令选择
+        .s1(move),      // 移位指令选择
+        .y(resulte)    // 输出结果
+    );
+    
+
+
 
 
 

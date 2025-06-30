@@ -32,50 +32,78 @@
 
 //先按照自己的想法来改，之后再把功能添上去。
 module shift(
-    input        [31:0] data_in,      // 输入数据
-    input        [4:0]  shift_amount, //移位量
-    input        [1:0]  shift_type,   // 移位类型
-    // input               carry_in,     // 输入的CPSR的C标志位
-    output reg   [31:0] data_out     // 移位结果
-    // output reg          carry_out     // 移位产生的C标志位
+    input        [31:0] datain,      // 输入数据
+    input        [4:0]  shiftamount, //移位量
+    input        [1:0]  shifttype,   // 移位类型
+    output       [31:0] data_out     // 移位结果
     );
 
-// 定义移位类型常量，增强可读性
-localparam LSL     = 2'b00; // Logical Shift Left
-localparam LSR     = 2'b01; // Logical Shift Right
-localparam ASR     = 2'b10; // Arithmetic Shift Right
-localparam ROR     = 2'b11; // Rotate Right or Rotate Right with Extend
-
-always @(*) begin
-    case(shift_type)
-        LSL: begin
-            data_out = data_in << shift_amount; // Logical Shift Left
-        end
-        LSR:begin
-            if (shift_amount==0)
-            data_out=32'b0; // ARM-style behavior: LSR #0 == LSR #32 => result is 0 arm定义的
-            else 
-            data_out = data_in >> shift_amount; // Logical Shift Right
-        end
-        ASR: begin
-            if (shift_amount == 0) begin
-             data_out = data_in[31] ? 32'hFFFFFFFF : 32'b0; // 全1或全0 arm定义的
-            end else begin
-                data_out = $signed(data_in) >>> shift_amount; // Arithmetic Shift Right
-            end
-        end
-        ROR: begin
-            if (shift_amount == 0) begin
-                data_out = data_in; // ROR #0, result is the same as input
-            end else begin
-                data_out = (data_in >> shift_amount) | (data_in << (32 - shift_amount)); // Rotate Right
-            end
-        end
-        default: begin
-            data_out = data_in; // Default: no shift
-        end
-    endcase
-end
-
+    // 桶形移位器的中间信号
+    wire [31:0] stage0, stage1, stage2, stage3, stage4;
+    wire [31:0] lsl_result, lsr_result, asr_result, ror_result;
+    
+    // 预计算移位量的有效位
+    wire shift_1  = shiftamount[0];
+    wire shift_2  = shiftamount[1];
+    wire shift_4  = shiftamount[2];
+    wire shift_8  = shiftamount[3];
+    wire shift_16 = shiftamount[4];
+    
+    // 特殊情况检测
+    wire shift_zero = (shiftamount == 5'b0);
+    wire shift_32 = (shiftamount == 5'b0) && (shifttype == 2'b01 || shifttype == 2'b10);
+    
+    // ==============================================
+    // 左移 (LSL) - 桶形移位器实现
+    // ==============================================
+    assign stage0 = shift_1  ? {datain[30:0], 1'b0} : datain;
+    assign stage1 = shift_2  ? {stage0[29:0], 2'b0} : stage0;
+    assign stage2 = shift_4  ? {stage1[27:0], 4'b0} : stage1;
+    assign stage3 = shift_8  ? {stage2[23:0], 8'b0} : stage2;
+    assign stage4 = shift_16 ? {stage3[15:0], 16'b0} : stage3;
+    assign lsl_result = stage4;
+    
+    // ==============================================
+    // 右移 (LSR/ASR) - 桶形移位器实现
+    // ==============================================
+    wire [31:0] rshift_stage0, rshift_stage1, rshift_stage2, rshift_stage3, rshift_stage4;
+    wire fill_bit = (shifttype == 2'b10) ? datain[31] : 1'b0; // ASR用符号位填充，LSR用0填充
+    
+    // LSR #0 特殊情况：视为LSR #32
+    wire [31:0] rshift_input = (shifttype == 2'b01 && shift_zero) ? 32'b0 : datain;
+    wire rshift_fill = (shifttype == 2'b01 && shift_zero) ? 1'b0 : fill_bit;
+    
+    assign rshift_stage0 = shift_1  ? {rshift_fill, rshift_input[31:1]} : rshift_input;
+    assign rshift_stage1 = shift_2  ? {{2{rshift_fill}}, rshift_stage0[31:2]} : rshift_stage0;
+    assign rshift_stage2 = shift_4  ? {{4{rshift_fill}}, rshift_stage1[31:4]} : rshift_stage1;
+    assign rshift_stage3 = shift_8  ? {{8{rshift_fill}}, rshift_stage2[31:8]} : rshift_stage2;
+    assign rshift_stage4 = shift_16 ? {{16{rshift_fill}}, rshift_stage3[31:16]} : rshift_stage3;
+    
+    // LSR结果
+    assign lsr_result = (shift_zero) ? 32'b0 : rshift_stage4;
+    
+    // ASR结果 - ASR #0 特殊情况：视为ASR #32
+    assign asr_result = (shift_zero) ? {32{datain[31]}} : rshift_stage4;
+    
+    // ==============================================
+    // 循环右移 (ROR) - 优化实现
+    // ==============================================
+    wire [4:0] effective_shift = shiftamount & 5'b11111; // 只考虑低5位
+    wire [31:0] ror_stage0, ror_stage1, ror_stage2, ror_stage3, ror_stage4;
+    
+    assign ror_stage0 = effective_shift[0] ? {datain[0], datain[31:1]} : datain;
+    assign ror_stage1 = effective_shift[1] ? {ror_stage0[1:0], ror_stage0[31:2]} : ror_stage0;
+    assign ror_stage2 = effective_shift[2] ? {ror_stage1[3:0], ror_stage1[31:4]} : ror_stage1;
+    assign ror_stage3 = effective_shift[3] ? {ror_stage2[7:0], ror_stage2[31:8]} : ror_stage2;
+    assign ror_stage4 = effective_shift[4] ? {ror_stage3[15:0], ror_stage3[31:16]} : ror_stage3;
+    assign ror_result = ror_stage4;
+    
+    // ==============================================
+    // 输出选择器
+    // ==============================================
+    assign data_out = (shifttype == 2'b00) ? lsl_result :
+                      (shifttype == 2'b01) ? lsr_result :
+                      (shifttype == 2'b10) ? asr_result :
+                      ror_result; // shifttype == 2'b11
 
 endmodule

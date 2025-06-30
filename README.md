@@ -36,6 +36,9 @@ For course design bands
 移位器有点冲突，说不定移动完之后就不是Rd的值了。
 2. ADD R1, R2, R3;ADD R1, R2, 12;移位的三种格式也没测试，但是也没必要。（加减与或以及条件执行支持）
 3. B 支持，且支持条件执行。
+4. MOV R1, #3
+5. MUL R,R,R
+6. 添加移位
 ### 优化频率与解耦
 1. 解耦imem/dmem
 2. 还要加上停顿，RA1D与WA3W的比较，具体是在IEregister上加上停顿

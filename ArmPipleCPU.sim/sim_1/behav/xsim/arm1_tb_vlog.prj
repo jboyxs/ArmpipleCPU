@@ -23,6 +23,7 @@ verilog xil_defaultlib  --include "../../../../ArmPipleCPU.ip_user_files/ipstati
 "../../../../ArmPipleCPU.srcs/sources_1/new/eqcmp.v" \
 "../../../../ArmPipleCPU.srcs/sources_1/new/hazard.v" \
 "../../../../ArmPipleCPU.srcs/sources_1/new/ifstage.v" \
+"../../../../ArmPipleCPU.srcs/sources_1/new/shift.v" \
 "../../../../ArmPipleCPU.srcs/sources_1/new/top.v" \
 "../../../../ArmPipleCPU.srcs/sim_1/new/arm1_tb.v" \
 

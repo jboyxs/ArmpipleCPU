@@ -1,0 +1,9 @@
++====================+====================+===================================+
+| Launch Setup Clock | Launch Hold Clock  | Pin                               |
++====================+====================+===================================+
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | arm1/AMRegister/resultm_reg[24]/D |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | arm1/AMRegister/resultm_reg[29]/D |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | arm1/AMRegister/resultm_reg[22]/D |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | arm1/AMRegister/resultm_reg[15]/D |
+| clk_out1_clk_wiz_0 | clk_out1_clk_wiz_0 | arm1/AMRegister/resultm_reg[16]/D |
++--------------------+--------------------+-----------------------------------+

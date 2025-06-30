@@ -53,7 +53,12 @@ module IERegister(
     output reg [31:0] extimme,
     // 为冲突单元的比较所用的信号
     output reg [3:0] RA1E,
-    output reg [3:0] RA2E
+    output reg [3:0] RA2E,
+    //添加移位指令
+    input shd,
+    input [1:0] shtyped,
+    output reg she, // 添加移位指令的输出
+    output reg [1:0] shtypee // 添加移位指令的输出
 );
     // 异步复位，同步清零
     always @(posedge clk or posedge reset) begin
@@ -77,6 +82,8 @@ module IERegister(
             RA1E <= 4'b0000;
             RA2E <= 4'b0000;
             move<= 1'b0; // 添加MOV指令，复位时将move清零
+            she <= 1'b0; // 添加移位指令，复位时将she清零
+            shtypee <= 2'b00; // 添加移位指令，复位
         end
         else if (flushe) begin
             // 同步清零，清零所有输出
@@ -98,6 +105,8 @@ module IERegister(
             RA1E <= 4'b0000;
             RA2E <= 4'b0000;
             move <= 1'b0; // 添加MOV指令，清零move
+            she <= 1'b0; // 添加移位指令，清零she
+            shtypee <= 2'b00; // 添加移位指令，清零
         end
         else begin
             // 正常传递信号
@@ -119,6 +128,8 @@ module IERegister(
             RA1E <= RA1D;
             RA2E <= RA2D;
             move <= movd; // 添加MOV指令，将movd传递给move
+            she <= shd; // 添加移位指令，将shd传递给she
+            shtypee <= shtyped; // 添加移位指令，将shtyped传
         end
     end
 endmodule

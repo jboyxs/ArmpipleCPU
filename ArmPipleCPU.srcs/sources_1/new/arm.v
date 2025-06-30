@@ -87,6 +87,8 @@ module arm(
     wire forwardawd, forwardbwd;
     wire [31:0] resultwv;//拿到IDStage的前面定义
     wire movd; //添加MOV指令
+    wire shd;//添加移位指令
+    wire [1:0] shtyped; 
     IDStage IDStage(
     .clk(clk),
     .instrd(instrd),
@@ -120,7 +122,10 @@ module arm(
     .forwardawd(forwardawd),
     .forwardbwd(forwardbwd),
     //添加MOV指令
-    .movd(movd)
+    .movd(movd),
+    //添加移位指令
+    .shd(shd),
+    .shtyped(shtyped)
     );
     //寄存器
     wire [3:0] flagsv;
@@ -141,6 +146,9 @@ module arm(
     wire [3:0] RA2E;
     wire memwritee;
     wire move;//添加MOV指令
+    //添加移位指令，到了执行也就是IE阶段的前面
+    wire she;
+    wire [1:0] shtypee;
     IERegister IERegister(
             //pc相关控制信号
     .pcsrcd(pcsrcd),
@@ -198,7 +206,12 @@ module arm(
     .RA2E(RA2E),
     //添加MOV指令
     .movd(movd),
-    .move(move)
+    .move(move),
+    //添加移位指令
+    .shd(shd),
+    .shtyped(shtyped),
+    .she(she),
+    .shtypee(shtypee)
     );
     //IE阶段
     // wire [31:0] memtoexe;
@@ -250,7 +263,10 @@ module arm(
     .writedatae(writedatae),
     .wa3ev(wa3ev),
     //添加MOV指令
-    .move(move)
+    .move(move),
+    //添加移位指令
+    .she(she),
+    .shtypee(shtypee)
     );
     assign aluresulte =resulte;
     //寄存器

@@ -51,7 +51,10 @@ module IDStage(
     input [31:0] resultwv,//利用这个再做一次转发
     input forwardawd,forwardbwd,
     //添加MOV指令
-    output movd
+    output movd,
+    //添加移位指令
+    output shd,
+    output [1:0] shtyped
 
 
     );
@@ -77,7 +80,9 @@ module IDStage(
 
     .pcsrcd(pcsrcd),
     .branchd(branchd),
-    .movd(movd) // 添加MOV指令
+    .movd(movd), // 添加MOV指令
+    .shd(shd), // 添加移位指令
+    .shtyped(shtyped) // 添加移位指令
 );
 wire [3:0] ra1,ra2,ra3;
 assign ra3= instrd[11:8]; // Ra3是指令的第11到8位就是DP指令中的Rs的地址
