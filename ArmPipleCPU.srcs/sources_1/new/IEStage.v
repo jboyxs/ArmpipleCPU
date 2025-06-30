@@ -56,7 +56,9 @@ module IEStage(
     output brantakee,//
     output [31:0] resulte,
     output [31:0] writedatae,
-    output [3:0] wa3ev
+    output [3:0] wa3ev,
+    //添加MOV指令
+    input move
     );
     //计算源选择模块(damn用ai写接口定义错了)
     wire [31:0] srcae, srcbev,srcbe;
@@ -95,13 +97,15 @@ module IEStage(
     );
     wire [3:0] aluflags;
     wire condexe;
+    wire [31:0] resultev;//添加MOV指令
     ALU alu(
         .a(srcae),
         .b(srcbe),
         .ALUControl(alucontrole),
-        .Result(resulte),
+        .Result(resultev),//添加MOV指令
         .Flags(aluflags)
     ); 
+assign resulte = move ? srcbe : resultev; //添加MOV指令//move等于1时将srcbe直接给到resulte//添加MOV指令//move等于1时将立即数直接给到resulte//或许srcbe可以换成extimme,现在的依赖alusrce的值
     CondUnite CondUnite (.conde(conde),
                   .flagse(flagse),
                   .aluflags(aluflags),

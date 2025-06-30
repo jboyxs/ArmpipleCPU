@@ -29,6 +29,8 @@ module IERegister(
     input [3:0] RA1D,
     input [3:0] RA2D,
     // 输出
+    input movd,//添加MOV指令
+    output reg move,
     // PC 相关控制信号
     output reg pcsrce,
     output reg regwritee,
@@ -74,6 +76,7 @@ module IERegister(
             extimme <= 32'b0;
             RA1E <= 4'b0000;
             RA2E <= 4'b0000;
+            move<= 1'b0; // 添加MOV指令，复位时将move清零
         end
         else if (flushe) begin
             // 同步清零，清零所有输出
@@ -94,6 +97,7 @@ module IERegister(
             extimme <= 32'b0;
             RA1E <= 4'b0000;
             RA2E <= 4'b0000;
+            move <= 1'b0; // 添加MOV指令，清零move
         end
         else begin
             // 正常传递信号
@@ -114,6 +118,7 @@ module IERegister(
             extimme <= extimmd;
             RA1E <= RA1D;
             RA2E <= RA2D;
+            move <= movd; // 添加MOV指令，将movd传递给move
         end
     end
 endmodule

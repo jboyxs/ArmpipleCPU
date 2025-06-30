@@ -19,6 +19,7 @@
 `define DP 2'b00
 `define ME 2'b01
 `define BR 2'b10
+
 module CtrUnite(
     input [1:0] op,
     input [5:0] funct,
@@ -35,7 +36,8 @@ module CtrUnite(
     output memwrited,
 
     output pcsrcd,
-    output  branchd//这个的控制逻辑是什么我没想好
+    output  branchd,//这个的控制逻辑是什么我没想好
+    output reg  movd//添加MOV指令
 
 
 );
@@ -71,11 +73,16 @@ assign {regsrcd,immsrcd,alusrcd,memtoregd,regwrited,memwrited,branchd,aluop}= co
 
 always @(*) begin
     if(aluop) begin
+        movd = 1'b0; // 默认情况下movd为0
         case(funct[4:1])
             `ADD : aluctronld = 2'b00; //AND
             `SUB: aluctronld=2'b01;
             `AND: aluctronld =2'b10;
             `ORR: aluctronld =2'b11;
+            `MOV: begin
+                aluctronld = 2'b00; // MOV指令
+                movd = 1'b1; // 设置movd为1，表示这是一个MOV指令
+            end
             default: aluctronld = 2'b00; // Default case for unexpected funct values
 
         endcase

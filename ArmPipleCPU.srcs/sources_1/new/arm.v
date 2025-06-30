@@ -86,6 +86,7 @@ module arm(
     //为寄存器上升沿新增冲突控制
     wire forwardawd, forwardbwd;
     wire [31:0] resultwv;//拿到IDStage的前面定义
+    wire movd; //添加MOV指令
     IDStage IDStage(
     .clk(clk),
     .instrd(instrd),
@@ -117,7 +118,9 @@ module arm(
     //为寄存器上升沿新增冲突控制
     .resultwv(resultwv), 
     .forwardawd(forwardawd),
-    .forwardbwd(forwardbwd)
+    .forwardbwd(forwardbwd),
+    //添加MOV指令
+    .movd(movd)
     );
     //寄存器
     wire [3:0] flagsv;
@@ -137,6 +140,7 @@ module arm(
     wire [3:0] RA1E;
     wire [3:0] RA2E;
     wire memwritee;
+    wire move;//添加MOV指令
     IERegister IERegister(
             //pc相关控制信号
     .pcsrcd(pcsrcd),
@@ -191,7 +195,10 @@ module arm(
     .extimme(extimme),
     //为冲突单元的比较所用的信号
     .RA1E(RA1E),
-    .RA2E(RA2E)
+    .RA2E(RA2E),
+    //添加MOV指令
+    .movd(movd),
+    .move(move)
     );
     //IE阶段
     // wire [31:0] memtoexe;
@@ -241,7 +248,9 @@ module arm(
     .brantakee(branchtakene),//
     .resulte(resulte),
     .writedatae(writedatae),
-    .wa3ev(wa3ev)
+    .wa3ev(wa3ev),
+    //添加MOV指令
+    .move(move)
     );
     assign aluresulte =resulte;
     //寄存器

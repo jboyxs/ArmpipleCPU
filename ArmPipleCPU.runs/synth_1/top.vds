@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Sun Jun 29 12:16:04 2025
-# Process ID         : 9004
+# Start of session at: Mon Jun 30 20:21:18 2025
+# Process ID         : 15380
 # Current directory  : C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1
 # Command line       : vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file           : C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/top.vds
@@ -19,7 +19,7 @@
 # Host memory        : 34281 MB
 # Swap memory        : 2147 MB
 # Total Virtual      : 36429 MB
-# Available Virtual  : 25419 MB
+# Available Virtual  : 17597 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/utils_1/imports/synth_1/IEStage.dcp
@@ -34,21 +34,21 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 11316
+INFO: [Synth 8-7075] Helper process launched with PID 1324
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1021.766 ; gain = 469.449
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1020.672 ; gain = 468.516
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/top.v:23]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-9004-Firstputve/realtime/clk_wiz_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-9004-Firstputve/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-15380-Firstputve/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-15380-Firstputve/realtime/clk_wiz_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'arm' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/arm.v:23]
 INFO: [Synth 8-6157] synthesizing module 'ifstage' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ifstage.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'ifstage' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ifstage.v:23]
 INFO: [Synth 8-6157] synthesizing module 'IDRegister' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IDRegister.v:22]
 INFO: [Synth 8-6155] done synthesizing module 'IDRegister' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IDRegister.v:22]
 INFO: [Synth 8-6157] synthesizing module 'IDStage' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IDStage.v:23]
-INFO: [Synth 8-6157] synthesizing module 'CtrUnite' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/CtrUnite.v:22]
-INFO: [Synth 8-6155] done synthesizing module 'CtrUnite' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/CtrUnite.v:22]
+INFO: [Synth 8-6157] synthesizing module 'CtrUnite' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/CtrUnite.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'CtrUnite' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/CtrUnite.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Mux2_4' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux2.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'Mux2_4' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Mux2.v:23]
 INFO: [Synth 8-6157] synthesizing module 'RegFile' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/RegFile.v:23]
@@ -83,11 +83,13 @@ INFO: [Synth 8-6155] done synthesizing module 'eqcmp' (0#1) [C:/Users/jjboy/ArmP
 INFO: [Synth 8-6157] synthesizing module 'hazard' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/hazard.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'hazard' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/hazard.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'arm' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/arm.v:23]
-INFO: [Synth 8-6157] synthesizing module 'dist_mem_im' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-9004-Firstputve/realtime/dist_mem_im_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'dist_mem_im' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-9004-Firstputve/realtime/dist_mem_im_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'dist_mem_gen_dm' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-9004-Firstputve/realtime/dist_mem_gen_dm_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'dist_mem_gen_dm' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-9004-Firstputve/realtime/dist_mem_gen_dm_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'dist_mem_im' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-15380-Firstputve/realtime/dist_mem_im_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'dist_mem_im' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-15380-Firstputve/realtime/dist_mem_im_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'dist_mem_gen_dm' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-15380-Firstputve/realtime/dist_mem_gen_dm_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'dist_mem_gen_dm' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/.Xil/Vivado-15380-Firstputve/realtime/dist_mem_gen_dm_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/top.v:23]
+WARNING: [Synth 8-3848] Net move in module/entity IERegister does not have driver. [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IERegister.v:33]
+WARNING: [Synth 8-3848] Net resultev in module/entity IEStage does not have driver. [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/IEStage.v:100]
 WARNING: [Synth 8-3848] Net memwritem in module/entity AMStage does not have driver. [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/AMStage.v:30]
 WARNING: [Synth 8-3848] Net resultm in module/entity AMStage does not have driver. [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/AMStage.v:31]
 WARNING: [Synth 8-3848] Net writedatam in module/entity AMStage does not have driver. [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/AMStage.v:32]
@@ -125,19 +127,21 @@ WARNING: [Synth 8-7129] Port writedatam[2] in module AMStage is either unconnect
 WARNING: [Synth 8-7129] Port writedatam[1] in module AMStage is either unconnected or has no load
 WARNING: [Synth 8-7129] Port writedatam[0] in module AMStage is either unconnected or has no load
 WARNING: [Synth 8-7129] Port clk in module AMStage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port move in module IERegister is either unconnected or has no load
+WARNING: [Synth 8-7129] Port movd in module IERegister is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1130.527 ; gain = 578.211
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1130.246 ; gain = 578.090
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1130.527 ; gain = 578.211
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1130.246 ; gain = 578.090
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1130.527 ; gain = 578.211
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1130.246 ; gain = 578.090
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1130.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1130.246 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -150,23 +154,23 @@ Parsing XDC File [c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_m
 Finished Parsing XDC File [c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_im/dist_mem_im/dist_mem_im_in_context.xdc] for cell 'imem'
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1219.770 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1222.379 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1219.770 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1222.379 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'dmem' at clock pin 'clk' is different from the actual clock period '7.692', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1219.777 ; gain = 667.461
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1224.773 ; gain = 672.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1219.777 ; gain = 667.461
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1224.773 ; gain = 672.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -177,11 +181,12 @@ Applied set_property KEEP_HIERARCHY = SOFT for dmem. (constraint file  auto gene
 Applied set_property KEEP_HIERARCHY = SOFT for clkwiz. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for imem. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1219.777 ; gain = 667.461
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1224.773 ; gain = 672.617
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'movd_reg' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/CtrUnite.v:83]
 WARNING: [Synth 8-327] inferring latch for variable 'imm32_reg' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/Extent.v:40]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1219.777 ; gain = 667.461
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1224.773 ; gain = 672.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -201,7 +206,7 @@ Detailed RTL Component Info :
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 13    
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 15    
+	   2 Input   32 Bit        Muxes := 16    
 	   4 Input   32 Bit        Muxes := 3     
 	   3 Input   32 Bit        Muxes := 1     
 	   4 Input   10 Bit        Muxes := 1     
@@ -209,9 +214,10 @@ Detailed RTL Component Info :
 	   2 Input    7 Bit        Muxes := 1     
 	   2 Input    6 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 7     
-	   5 Input    2 Bit        Muxes := 1     
+	   6 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 8     
 	   2 Input    1 Bit        Muxes := 1     
+	   6 Input    1 Bit        Muxes := 1     
 	   4 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -229,8 +235,105 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (arm1/IDStage/CtrUnite/movd_reg) is unused and will be removed from module top.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_51/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_55/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_59/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_63/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_67/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_71/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_75/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_79/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_83/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_87/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_91/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_95/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_99/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_103/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_107/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_111/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_115/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_119/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_123/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_127/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_131/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_135/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_139/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_143/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_147/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_151/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_155/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_159/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_163/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_167/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_171/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 1st driver pin 'arm1i_1/arm1/IEStage/alu/i_175/O' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin O with 2nd driver pin 'GND' [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net O is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ALU.v:36]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1219.777 ; gain = 667.461
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1224.773 ; gain = 672.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -251,13 +354,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1329.938 ; gain = 777.621
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1323.145 ; gain = 770.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1401.742 ; gain = 849.426
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1377.062 ; gain = 824.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -277,7 +380,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1401.742 ; gain = 849.426
+Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1377.117 ; gain = 824.961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -295,37 +398,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1567.848 ; gain = 1015.531
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1568.539 ; gain = 1016.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1567.848 ; gain = 1015.531
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1568.539 ; gain = 1016.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1567.848 ; gain = 1015.531
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1568.539 ; gain = 1016.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1567.848 ; gain = 1015.531
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1568.539 ; gain = 1016.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1567.848 ; gain = 1015.531
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1568.539 ; gain = 1016.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1567.848 ; gain = 1015.531
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1568.539 ; gain = 1016.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -349,43 +452,44 @@ Report Cell Usage:
 |3     |dist_mem_im     |     1|
 |4     |BUFG            |     1|
 |5     |CARRY4          |    17|
-|6     |LUT2            |    66|
-|7     |LUT3            |    56|
-|8     |LUT4            |    21|
-|9     |LUT5            |   216|
-|10    |LUT6            |   164|
+|6     |LUT2            |    89|
+|7     |LUT3            |    19|
+|8     |LUT4            |    82|
+|9     |LUT5            |   167|
+|10    |LUT6            |    73|
 |11    |RAM32M          |    10|
 |12    |RAM32X1D        |     4|
-|13    |FDCE            |   333|
+|13    |FDCE            |   268|
 |14    |LD              |    32|
 |15    |IBUF            |     1|
 |16    |OBUF            |    65|
 +------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1567.848 ; gain = 1015.531
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1568.539 ; gain = 1016.383
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1567.848 ; gain = 926.281
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1567.848 ; gain = 1015.531
+Synthesis finished with 0 errors, 96 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1568.539 ; gain = 921.855
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1568.539 ; gain = 1016.383
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1567.848 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1577.746 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 63 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1567.848 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1581.371 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 46 instances were transformed.
   LD => LDCE: 32 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 10 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 4 instances
 
-Synth Design complete | Checksum: 85f57eff
+Synth Design complete | Checksum: f973a307
 INFO: [Common 17-83] Releasing license: Synthesis
-69 Infos, 40 Warnings, 0 Critical Warnings and 0 Errors encountered.
+69 Infos, 46 Warnings, 96 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1567.848 ; gain = 1208.062
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1567.848 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1581.371 ; gain = 1222.160
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1581.371 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/top.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jun 29 12:16:47 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 30 20:22:01 2025...

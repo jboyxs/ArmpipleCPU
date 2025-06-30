@@ -49,8 +49,9 @@ module IDStage(
     output [3:0] RA2D,
     //新增冲突控制
     input [31:0] resultwv,//利用这个再做一次转发
-    input forwardawd,forwardbwd
-
+    input forwardawd,forwardbwd,
+    //添加MOV指令
+    output movd
 
 
     );
@@ -75,7 +76,8 @@ module IDStage(
     .memwrited(memwrited),
 
     .pcsrcd(pcsrcd),
-    .branchd(branchd)
+    .branchd(branchd),
+    .movd(movd) // 添加MOV指令
 );
 wire [3:0] ra1,ra2,ra3;
 assign ra3= instrd[11:8]; // Ra3是指令的第11到8位就是DP指令中的Rs的地址
