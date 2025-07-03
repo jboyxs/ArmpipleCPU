@@ -97,6 +97,7 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -122,8 +123,8 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.runs/synth_1/top.dcp
   read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/dist_mem_gen_dm/dist_mem_gen_dm.xci
-  read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
   read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/dist_mem_im/dist_mem_im.xci
+  read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 OPTRACE "read constraints: implementation" START { }
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }

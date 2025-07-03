@@ -1,5 +1,6 @@
 Time resolution is 1 ps
 WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
 WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
-WARNING in arm1_tb.dut.dmem.inst at time              4637692 ns: 
+WARNING in arm1_tb.dut.dmem.inst at time              4644285 ns: 
 Reading from out-of-range address. Max address in arm1_tb.dut.dmem.inst is          63
+INFO: xsimkernel Simulation Memory Usage: 38764 KB (Peak: 38764 KB), Simulation CPU Usage: 12827 ms

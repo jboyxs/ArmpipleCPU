@@ -56,6 +56,8 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -94,18 +96,19 @@ read_verilog -library xil_defaultlib {
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/eqcmp.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/hazard.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/ifstage.v
+  C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/shift.v
   C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/new/top.v
 }
 read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/dist_mem_gen_dm/dist_mem_gen_dm.xci
 set_property used_in_implementation false [get_files -all c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_gen_dm/dist_mem_gen_dm_ooc.xdc]
 
+read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/dist_mem_im/dist_mem_im.xci
+set_property used_in_implementation false [get_files -all c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_im/dist_mem_im_ooc.xdc]
+
 read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
-
-read_ip -quiet C:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.srcs/sources_1/ip/dist_mem_im/dist_mem_im.xci
-set_property used_in_implementation false [get_files -all c:/Users/jjboy/ArmPipleCPU/ArmPipleCPU.gen/sources_1/ip/dist_mem_im/dist_mem_im_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
