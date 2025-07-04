@@ -8,9 +8,11 @@
 module dist_mem_gen_dm (
   a,
   d,
+  dpra,
   clk,
   we,
-  spo
+  spo,
+  dpo
 );
 
   (* X_INTERFACE_IGNORE = "true" *)
@@ -18,11 +20,15 @@ module dist_mem_gen_dm (
   (* X_INTERFACE_IGNORE = "true" *)
   input [31:0]d;
   (* X_INTERFACE_IGNORE = "true" *)
+  input [5:0]dpra;
+  (* X_INTERFACE_IGNORE = "true" *)
   input clk;
   (* X_INTERFACE_IGNORE = "true" *)
   input we;
   (* X_INTERFACE_IGNORE = "true" *)
   output [31:0]spo;
+  (* X_INTERFACE_IGNORE = "true" *)
+  output [31:0]dpo;
 
   // stub module has no contents
 

@@ -38,7 +38,10 @@ module AMRegister(
     output reg memwritem,
     output reg [31:0] resultm,
     output reg [31:0] writedatam,
-    output reg [3:0] wa3m
+    output reg [3:0] wa3m,
+    //添加读指示信号
+    input memreadev,
+    output reg memreadm
     );
 
     always @(posedge clk,posedge reset) begin
@@ -50,6 +53,7 @@ module AMRegister(
         resultm <= 0;
         writedatam <= 0;
         wa3m <= 0;
+        memreadm <= 0;
         end
         else begin
         pcsrcm <= pcsrcev;
@@ -59,6 +63,7 @@ module AMRegister(
         resultm <= resulte;
         writedatam <= writedatae;
         wa3m <= wa3ev;
+        memreadm <= memreadev; // 添加多核协作，读信号
     end
     end
 endmodule

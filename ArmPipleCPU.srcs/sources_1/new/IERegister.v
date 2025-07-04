@@ -58,7 +58,10 @@ module IERegister(
     input shd,
     input [1:0] shtyped,
     output reg she, // 添加移位指令的输出
-    output reg [1:0] shtypee // 添加移位指令的输出
+    output reg [1:0] shtypee, // 添加移位指令的输出
+    // 添加多核协作，读信号
+    input memreadd,
+    output reg memreade
 );
     // 异步复位，同步清零
     always @(posedge clk or posedge reset) begin
@@ -84,6 +87,7 @@ module IERegister(
             move<= 1'b0; // 添加MOV指令，复位时将move清零
             she <= 1'b0; // 添加移位指令，复位时将she清零
             shtypee <= 2'b00; // 添加移位指令，复位
+            memreade <= 1'b0; // 添加多核协作，复位时将memreade清零
         end
         else if (flushe) begin
             // 同步清零，清零所有输出
@@ -107,6 +111,7 @@ module IERegister(
             move <= 1'b0; // 添加MOV指令，清零move
             she <= 1'b0; // 添加移位指令，清零she
             shtypee <= 2'b00; // 添加移位指令，清零
+            memreade <= 1'b0; // 添加多核协作，清零memreade
         end
         else begin
             // 正常传递信号
@@ -130,6 +135,7 @@ module IERegister(
             move <= movd; // 添加MOV指令，将movd传递给move
             she <= shd; // 添加移位指令，将shd传递给she
             shtypee <= shtyped; // 添加移位指令，将shtyped传
+            memreade <= memreadd; // 添加多核协作，将memreadd传递给memreade
         end
     end
 endmodule

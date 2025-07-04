@@ -28,7 +28,9 @@ module arm(
     //解耦dmem
     input [31:0] readmin,
     output  [31:0] WriteDataM,DataAdrM,
-    output MemWriteM
+    output MemWriteM,
+    //指示读取的信号,为多核协作做准备
+    output  memreadm
 
     );
        //取指阶段
@@ -89,6 +91,7 @@ module arm(
     wire movd; //添加MOV指令
     wire shd;//添加移位指令
     wire [1:0] shtyped; 
+    wire memreadd; //添加多核协作，读信号
     IDStage IDStage(
     .clk(clk),
     .instrd(instrd),
@@ -125,7 +128,9 @@ module arm(
     .movd(movd),
     //添加移位指令
     .shd(shd),
-    .shtyped(shtyped)
+    .shtyped(shtyped),
+    //添加多核协作，读信号
+    .memreadd(memreadd)
     );
     //寄存器
     wire [3:0] flagsv;
@@ -149,6 +154,7 @@ module arm(
     //添加移位指令，到了执行也就是IE阶段的前面
     wire she;
     wire [1:0] shtypee;
+    wire memreade; //添加多核协作，读信号
     IERegister IERegister(
             //pc相关控制信号
     .pcsrcd(pcsrcd),
@@ -211,7 +217,10 @@ module arm(
     .shd(shd),
     .shtyped(shtyped),
     .she(she),
-    .shtypee(shtypee)
+    .shtypee(shtypee),
+    //添加多核协作，读信号
+    .memreadd(memreadd),
+    .memreade(memreade)
     );
     //IE阶段
     // wire [31:0] memtoexe;
@@ -226,6 +235,7 @@ module arm(
     wire [31:0] writedatae;
     wire [3:0] wa3ev;
         wire [31:0] resultm;
+        wire memreadev; //添加多核协作，读信号
     IEStage IEStage(
             //pc相关控制信号
     .pcsrce(pcsrce),
@@ -266,7 +276,10 @@ module arm(
     .move(move),
     //添加移位指令
     .she(she),
-    .shtypee(shtypee)
+    .shtypee(shtypee),
+    //添加多核协作，读信号
+    .memreade(memreade),
+    .memreadev(memreadev)
     );
     assign aluresulte =resulte;
     //寄存器
@@ -277,6 +290,7 @@ module arm(
 
     wire [31:0] writedatam;
     wire [3:0] wa3m;
+    
     AMRegister AMRegister(
     .clk(clk),
     .reset(reset), // 异步复位
@@ -295,7 +309,9 @@ module arm(
     .memwritem(memwritem),
     .resultm(resultm),
     .writedatam(writedatam),
-    .wa3m(wa3m)
+    .wa3m(wa3m),
+    .memreadev(memreadev), // 添加多核协作，读信号
+    .memreadm(memreadm) // 添加多核协作，读信号
     );
     //AM阶段
     wire pcsrcmv;

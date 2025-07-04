@@ -54,7 +54,9 @@ module IDStage(
     output movd,
     //添加移位指令
     output shd,
-    output [1:0] shtyped
+    output [1:0] shtyped,
+    //添加多核协作，读信号
+    output memreadd
 
 
     );
@@ -82,7 +84,8 @@ module IDStage(
     .branchd(branchd),
     .movd(movd), // 添加MOV指令
     .shd(shd), // 添加移位指令
-    .shtyped(shtyped) // 添加移位指令
+    .shtyped(shtyped),// 添加移位指令
+    .memreadd(memreadd) // 添加多核协作，读信号
 );
 wire [3:0] ra1,ra2,ra3;
 assign ra3= instrd[11:8]; // Ra3是指令的第11到8位就是DP指令中的Rs的地址

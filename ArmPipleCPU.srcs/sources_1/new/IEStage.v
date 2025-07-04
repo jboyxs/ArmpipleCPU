@@ -61,7 +61,11 @@ module IEStage(
     input move,
     //添加移位指令
     input she,
-    input [1:0] shtypee
+    input [1:0] shtypee,
+    //添加多核协作，读信号
+    input memreade,
+    output memreadev
+
     );
     //计算源选择模块(damn用ai写接口定义错了)
     wire [31:0] srcae, srcbev,srcbe;
@@ -143,7 +147,8 @@ module IEStage(
         .s1(move),      // 移位指令选择
         .y(resulte)    // 输出结果
     );
-    
+    //添加多核协作
+    assign memreadev = memreade; // 直接传递多核协作的读信号
 
 
 

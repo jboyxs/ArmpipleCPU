@@ -46,7 +46,8 @@ module CtrUnite(
     output  branchd,//这个的控制逻辑是什么我没想好
     output reg  movd,//添加MOV指令
     output reg shd,//添加移位指令
-    output reg [1:0] shtyped//指示移位类型
+    output reg [1:0] shtyped,//指示移位类型
+    output reg memreadd//添加多核协作，读信号
 
 
 );
@@ -62,12 +63,16 @@ begin
 
         end
         `ME: begin//书上的控制逻辑感觉有点问题
-            if (funct[0])
+            memreadd = 1'b0; //默认情况下是0，表示不读内存
+            if (funct[0]) begin
+                memreadd = 1'b1;// 如果funct[0]为1，表示需要读内存
                 if(funct[5]) controls=10'b0001011000;
-                else controls=10'b0001111000; //书上的，我考虑了偏移量存在寄存器里的情况
-            else 
+                else controls=10'b0001111000; //书上的，我考虑了偏移量存在寄存器里的情况//LDR
+            end
+            else begin
                 if(funct[5]) controls=10'b1001010100;//现在还没想好怎么把寄存器里面的偏移量读出来，后面可能要在加一个口在RF上，现在不能实现偏移量放在寄存器中的情况
-                else controls=10'b1001110100;//书上的，我考虑了偏移量存在寄存器里的情况
+                else controls=10'b1001110100;//书上的，我考虑了偏移量存在寄存器里的情况//STR
+            end
         end
         `BR: begin
             controls=10'b0110100010;//branch
